@@ -5,6 +5,8 @@ Module for work with Microsoft Office Word
 
 ![alt text](https://raw.githubusercontent.com/rocketbot-cl/OfficeWord/master/example/word.png)
 
+![alt text](https://raw.githubusercontent.com/rocketbot-cl/OfficeWord/master/example/word2.png)
+
 <h2>Libraries</h2>
 <p>
   <ul>
