@@ -9,9 +9,11 @@ Module for work with Microsoft Office Word
 <p>
   <ul>
     <li>
+      <strong>
       <a href="https://github.com/python-openxml/python-docx">
         python-docx
       </a>
+      </strong>
     </li>
   </ul> 
 </p>
@@ -20,9 +22,11 @@ Module for work with Microsoft Office Word
 <p>
   <ul>
     <li>
+      <strong>
       <a href="https://github.com/tobya/DocTo">
         DocTo
       </a>
+      </strong>
     </li>
   </ul> 
 </p>
