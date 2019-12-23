@@ -82,6 +82,8 @@ if module == "save":
     path = GetParams("path")
 
     if path:
+        if not path.endswith(".docx"):
+            path += ".docx"
         document.save(path)
 
 if module == "write":
@@ -169,6 +171,9 @@ if module == "to_pdf":
         from_ = GetParams("from")
         to_ = GetParams("to")
 
+        if not to_.endswith(".pdf"):
+            to_ += ".pdf"
+
         from_ = os.path.normpath(from_)
         to_ = os.path.normpath(to_)
 
@@ -180,3 +185,77 @@ if module == "to_pdf":
     except Exception as e:
         PrintException()
         raise e
+
+## Modificado por Mijahil Franchi: Ubica el parrafo en el que se encuentra un texto
+if module == "search_text":
+    parrafos = document.paragraphs
+    text_buscar = GetParams("text_search")
+    variable = GetParams("variable")
+    posicion = 0
+    posiciones = list()
+    try:
+        for parrafo in parrafos:
+            if text_buscar in parrafo.text:
+                posiciones.append(posicion)
+            posicion = posicion+1
+    except Exception as e:
+        PrintException()
+        raise e
+
+    if posiciones:
+        SetVar(variable, posiciones)
+
+## Modificado por Mijahil Franchi: Cuenta los parrafos de un documento
+if module == "count_paragraphs":
+    variable = GetParams("variable")
+    
+    try:
+        parrafos = document.paragraphs
+        cantidad = len(parrafos)
+    except Exception as e:
+        PrintException()
+        raise e
+
+    if cantidad:
+        SetVar(variable, cantidad)
+
+## Modificado por Mijahil Franchi: Busca y remplaza el contenido de un texto
+if module == "search_replace_text":
+    
+    variable = GetParams("variable")
+    parrafos = GetParams("parrafos")
+    buscar = GetParams("text_search")
+    remplazar = GetParams("text_replace")
+    resultado = False
+    posicion = 0
+    parrafos_ini = document.paragraphs
+
+    try:
+        if parrafos:
+            parrafos = parrafos.split(',')
+            for parrafo in parrafos:
+                parrafo = int(parrafo)
+                text_parrafo = parrafos_ini[parrafo].text
+                if buscar in text_parrafo:
+                    texto = text_parrafo
+                    texto = texto.replace(buscar, remplazar)
+                    parrafos_ini[parrafo].text = texto
+                    resultado = True
+        else:
+            print("esta vacio el string")
+            for parrafo in parrafos_ini:
+                if buscar in parrafo.text:
+                    texto = parrafo.text
+                    texto = texto.replace(buscar, remplazar)
+                    parrafos_ini[posicion].text = texto
+                    resultado = True
+                posicion = posicion+1
+
+        SetVar(variable, resultado)
+            
+    except Exception as e:
+        SetVar(variable, False)
+        PrintException()
+        raise e
+    
+    
