@@ -191,7 +191,7 @@ if module == "search_text":
     parrafos = document.paragraphs
     text_buscar = GetParams("text_search")
     variable = GetParams("variable")
-    posicion = 0
+    posicion = 1
     posiciones = list()
     try:
         for parrafo in parrafos:
@@ -242,7 +242,6 @@ if module == "search_replace_text":
                     parrafos_ini[parrafo].text = texto
                     resultado = True
         else:
-            print("esta vacio el string")
             for parrafo in parrafos_ini:
                 if buscar in parrafo.text:
                     texto = parrafo.text
