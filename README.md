@@ -7,6 +7,11 @@ Module for work with Microsoft Office Word
 
 ![alt text](https://raw.githubusercontent.com/rocketbot-cl/OfficeWord/master/example/word2.png)
 
+<strong>Video Example:</strong>
+
+[![Office Word](https://img.youtube.com/vi/q_jHgN2Zg5A/0.jpg)](https://www.youtube.com/watch?v=q_jHgN2Zg5A "Office Word")
+
+
 <h2>Libraries</h2>
 <p>
   <ul>
