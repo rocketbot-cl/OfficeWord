@@ -35,6 +35,10 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt
 import docx2txt
 from subprocess import Popen, PIPE
+from docx.oxml.shared import qn
+import docx
+from xml.etree import ElementTree
+from lxml import etree
 
 docto = os.path.join(cur_path.replace("libs", "bin"), "docto.exe")
 
@@ -77,11 +81,74 @@ if module == "read":
     if result:
         SetVar(result, text)
 
+if module == "readTable":
+
+    result = GetParams("result")
+    tablesDoc = []
+    for table in document.tables:
+        table_ = []
+        for row in table.rows:
+            array_row = []
+            for cell in row.cells:
+                if len(array_row) > 0:
+                    if array_row[-1] != cell.text:
+                        array_row.append(cell.text)
+                else:
+                    array_row.append(cell.text)
+            table_.append(array_row)
+        tableDoc.append(table_)
+    if result:
+        SetVar(result, tableDoc)
+
+if module == "addTextBookmark":
+
+    import copy
+
+    bookmark_searched = GetParams("bookmark")
+    text = GetParams("text")
+
+    try:
+        ele = document._element[0]
+        bookmarks_list = ele.findall('.//' + qn('w:bookmarkStart'))
+        for bookmark in bookmarks_list:
+            name = bookmark.get(qn('w:name'))
+            if name == bookmark_searched:
+                # get parent and search value
+                next_el = bookmark.getnext()
+                previous_el = bookmark.getprevious()
+                fonts_copy = copy.deepcopy(previous_el.find(qn('w:rPr')).find(qn('w:rFonts')))
+                next_el.find(qn('w:rPr')).rFonts.clear()
+                next_el.find(qn('w:rPr')).rFonts.append(fonts_copy)
+                print("values", next_el.find(qn('w:rPr')).rFonts.values())
+                print(dir(next_el.find(qn('w:rPr')).rFonts))
+                fonts = next_el.find(qn('w:rPr')).find(qn('w:rFonts'))
+                fonts = fonts_copy
+                print("fonts", fonts.get(qn('w:cs')))
+                next_el.find(qn('w:t')).text = text
+
+
+                break
+
+                # print("new", new_w_r)
+                # if not new_w_r:
+                #     p = parent.getparent()
+                #     new_w_r = copy.copy(p.findall('.//' + qn('w:r'))[0])
+                #
+                # w_t = new_w_r.find(qn('w:t'))
+                # w_t.text = text
+                # parent.append(new_w_r)
+
+    except Exception as e:
+        PrintException()
+        raise e
+
 if module == "save":
 
     path = GetParams("path")
 
     if path:
+        if not path.endswith(".docx"):
+            path += ".docx"
         document.save(path)
 
 if module == "write":
@@ -169,6 +236,9 @@ if module == "to_pdf":
         from_ = GetParams("from")
         to_ = GetParams("to")
 
+        if not to_.endswith(".pdf"):
+            to_ += ".pdf"
+
         from_ = os.path.normpath(from_)
         to_ = os.path.normpath(to_)
 
@@ -180,3 +250,77 @@ if module == "to_pdf":
     except Exception as e:
         PrintException()
         raise e
+
+## Modificado por Mijahil Franchi: Ubica el parrafo en el que se encuentra un texto
+if module == "search_text":
+    parrafos = document.paragraphs
+    text_buscar = GetParams("text_search")
+    variable = GetParams("variable")
+    posicion = 0
+    posiciones = list()
+    try:
+        for parrafo in parrafos:
+            if text_buscar in parrafo.text:
+                posiciones.append(posicion)
+            posicion = posicion+1
+    except Exception as e:
+        PrintException()
+        raise e
+
+    if posiciones:
+        SetVar(variable, posiciones)
+
+## Modificado por Mijahil Franchi: Cuenta los parrafos de un documento
+if module == "count_paragraphs":
+    variable = GetParams("variable")
+    
+    try:
+        parrafos = document.paragraphs
+        cantidad = len(parrafos)
+    except Exception as e:
+        PrintException()
+        raise e
+
+    if cantidad:
+        SetVar(variable, cantidad)
+
+## Modificado por Mijahil Franchi: Busca y remplaza el contenido de un texto
+if module == "search_replace_text":
+    
+    variable = GetParams("variable")
+    parrafos = GetParams("parrafos")
+    buscar = GetParams("text_search")
+    remplazar = GetParams("text_replace")
+    resultado = False
+    posicion = 0
+    parrafos_ini = document.paragraphs
+
+    try:
+        if parrafos:
+            parrafos = parrafos.split(',')
+            for parrafo in parrafos:
+                parrafo = int(parrafo)
+                text_parrafo = parrafos_ini[parrafo].text
+                if buscar in text_parrafo:
+                    texto = text_parrafo
+                    texto = texto.replace(buscar, remplazar)
+                    parrafos_ini[parrafo].text = texto
+                    resultado = True
+        else:
+            print("esta vacio el string")
+            for parrafo in parrafos_ini:
+                if buscar in parrafo.text:
+                    texto = parrafo.text
+                    texto = texto.replace(buscar, remplazar)
+                    parrafos_ini[posicion].text = texto
+                    resultado = True
+                posicion = posicion+1
+
+        SetVar(variable, resultado)
+            
+    except Exception as e:
+        SetVar(variable, False)
+        PrintException()
+        raise e
+    
+    
