@@ -300,6 +300,7 @@ if module == "search_replace_text":
                     resultado = True
         else:
             print("esta vacio el string")
+
             for parrafo in parrafos_ini:
                 if buscar in parrafo.text:
                     texto = parrafo.text
