@@ -106,6 +106,8 @@ if module == "addTextBookmark":
 
     bookmark_searched = GetParams("bookmark")
     text = GetParams("text")
+    clean = GetParams("Clean")
+    print(clean)
 
     try:
         ele = document._element[0]
@@ -115,28 +117,18 @@ if module == "addTextBookmark":
             if name == bookmark_searched:
                 # get parent and search value
                 next_el = bookmark.getnext()
-                previous_el = bookmark.getprevious()
-                fonts_copy = copy.deepcopy(previous_el.find(qn('w:rPr')).find(qn('w:rFonts')))
-                next_el.find(qn('w:rPr')).rFonts.clear()
-                next_el.find(qn('w:rPr')).rFonts.append(fonts_copy)
-                print("values", next_el.find(qn('w:rPr')).rFonts.values())
-                print(dir(next_el.find(qn('w:rPr')).rFonts))
-                fonts = next_el.find(qn('w:rPr')).find(qn('w:rFonts'))
-                fonts = fonts_copy
-                print("fonts", fonts.get(qn('w:cs')))
-                next_el.find(qn('w:t')).text = text
+                if next_el.get(qn('w:name')) == "_GoBack":
+                    next_el = next_el.getnext()
 
-
+                if clean:
+                    next_el.find(qn('w:t')).text = text
+                else:
+                    next_el.find(qn('w:t')).text += str(text)
                 break
-
-                # print("new", new_w_r)
-                # if not new_w_r:
-                #     p = parent.getparent()
-                #     new_w_r = copy.copy(p.findall('.//' + qn('w:r'))[0])
-                #
-                # w_t = new_w_r.find(qn('w:t'))
-                # w_t.text = text
-                # parent.append(new_w_r)
+            else:
+                name = False
+        if not name:
+            raise Exception("Bookmark not found")
 
     except Exception as e:
         PrintException()
