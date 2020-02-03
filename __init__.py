@@ -113,6 +113,7 @@ if module == "addTextBookmark":
         ele = document._element[0]
         bookmarks_list = ele.findall('.//' + qn('w:bookmarkStart'))
         for bookmark in bookmarks_list:
+            print(bookmark)
             name = bookmark.get(qn('w:name'))
             if name == bookmark_searched:
                 # get parent and search value
