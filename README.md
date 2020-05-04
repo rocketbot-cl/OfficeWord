@@ -1,6 +1,25 @@
 # OfficeWord
 Module for work with Microsoft Office Word
 
+## Commands
+<ul id="commands_readme">
+    <li>New Document</li>
+    <li>Open Document</li>
+    <li>Read Document</li>
+    <li>Save Document</li>
+    <li>Write in Document</li>
+    <li>Read Table</li>
+    <li>Add text from bookmark</li>
+    <li>Close Document</li>
+    <li>Add Page</li>
+    <li>Add Picture</li>
+    <li>Convert to PDF</li>
+    <li>Locate Text in Paragraph</li>
+    <li>Count Paragraphs</li>
+    <li>Replace text in paragraph</li>
+</ul>
+
+
 **In the example robot you must change the URLs for yours
 
 ![alt text](https://raw.githubusercontent.com/rocketbot-cl/OfficeWord/master/example/word.png)
