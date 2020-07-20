@@ -36,6 +36,8 @@ from docx.shared import Pt
 import docx2txt
 from subprocess import Popen, PIPE
 from docx.oxml.shared import qn
+from docx.oxml import OxmlElement
+
 import docx
 from xml.etree import ElementTree
 from lxml import etree
@@ -113,18 +115,26 @@ if module == "addTextBookmark":
         ele = document._element[0]
         bookmarks_list = ele.findall('.//' + qn('w:bookmarkStart'))
         for bookmark in bookmarks_list:
-            print(bookmark)
+            # print(bookmark)
             name = bookmark.get(qn('w:name'))
             if name == bookmark_searched:
                 # get parent and search value
                 next_el = bookmark.getnext()
+                print(next_el, "*********")
                 if next_el.get(qn('w:name')) == "_GoBack":
                     next_el = next_el.getnext()
+                if not next_el.find(qn('w:t')):
+                    r = OxmlElement('w:r')
+                    next_el.insert(0, r)
+                    t = OxmlElement('w:t')
+                    r.insert(0, t)
+                else:
+                    t = next_el.find(qn('w:t'))
 
                 if clean:
-                    next_el.find(qn('w:t')).text = text
+                    t.text = text
                 else:
-                    next_el.find(qn('w:t')).text += str(text)
+                    t.text += str(text)
                 break
             else:
                 name = False
