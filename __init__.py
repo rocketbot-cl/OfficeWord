@@ -36,7 +36,7 @@ from docx.shared import Pt
 import docx2txt
 from subprocess import Popen, PIPE
 from docx.oxml.shared import qn
-from docx.oxml import OxmlElement
+import docx.oxml
 
 import docx
 from xml.etree import ElementTree
@@ -112,32 +112,39 @@ if module == "addTextBookmark":
     print(clean)
 
     try:
+        tmp_doc = Document()
+        # Generate content in tmp_doc document
+        tmp_doc.add_paragraph(text)
+        # Reference the tmp_doc XML content
+        tmp_doc_body = tmp_doc._element.body
+
+
         ele = document._element[0]
         bookmarks_list = ele.findall('.//' + qn('w:bookmarkStart'))
         for bookmark in bookmarks_list:
             # print(bookmark)
             name = bookmark.get(qn('w:name'))
             if name == bookmark_searched:
-                # get parent and search value
-                next_el = bookmark.getnext()
-                print(next_el, "*********")
-                if next_el.get(qn('w:name')) == "_GoBack":
-                    next_el = next_el.getnext()
-                if not next_el.find(qn('w:t')):
-                    r = OxmlElement('w:r')
-                    next_el.insert(0, r)
-                    t = OxmlElement('w:t')
-                    r.insert(0, t)
-                else:
-                    t = next_el.find(qn('w:t'))
+                par = bookmark.getparent()
 
                 if clean:
-                    t.text = text
-                else:
-                    t.text += str(text)
+                    next_element = bookmark.getnext()
+                    if not isinstance(next_element, docx.oxml.CT_R):
+                        next_element = next_element.getnext()
+                    t = next_element.findall('.//' + qn('w:t'))
+                    if len(t) == 1:
+                        t[0].text = text
+                elif isinstance(par, docx.oxml.CT_P):
+                    bookmark_par_parent = par.getparent()
+                    index = bookmark_par_parent.index(par)
+                    for child in tmp_doc_body:
+                        bookmark_par_parent.insert(index, child)
+                        index = index + 1
+
                 break
             else:
-                name = False
+                name = None
+
         if not name:
             raise Exception("Bookmark not found")
 
