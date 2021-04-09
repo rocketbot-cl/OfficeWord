@@ -253,8 +253,10 @@ if module == "to_pdf":
         to_ = os.path.normpath(to_)
 
         options = ' -f "' + from_ + '" -O "' + to_ + '" -T wdFormatPDF'
+        options = ['-f', from_, "-O", to_, "-T", "wdFormatPDF"]
 
-        run_ = docto + options
+        run_ = [docto] + options
+        print("\n\n",run_)
         con = Popen(run_, shell=True, stdout=PIPE, stderr=PIPE)
         a = con.communicate()
     except Exception as e:
