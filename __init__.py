@@ -44,6 +44,21 @@ from lxml import etree
 
 docto = os.path.join(cur_path.replace("libs", "bin"), "docto.exe")
 
+class DocxModule:
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def replace_in_paragraph(paragraph, buscar, remplazar):
+            if buscar in paragraph.text:
+                for run in paragraph.runs:
+                    if buscar in run.text:
+                        text = run.text.replace(buscar, remplazar)
+                        run.text = text
+                        return True
+            return False
+
 
 def style_text(text, size, bold, ital, under):
 
@@ -303,36 +318,25 @@ if module == "search_replace_text":
     parrafos = GetParams("parrafos")
     buscar = GetParams("text_search")
     remplazar = GetParams("text_replace")
-    resultado = False
+    result = False
     posicion = 0
-    parrafos_ini = document.paragraphs
 
     try:
-        if parrafos:
-            parrafos = parrafos.split(',')
-            for parrafo in parrafos:
-                parrafo = int(parrafo)
-                text_parrafo = parrafos_ini[parrafo].text
-                if buscar in text_parrafo:
-                    texto = text_parrafo
-                    texto = texto.replace(buscar, remplazar)
-                    parrafos_ini[parrafo].text = texto
-                    resultado = True
+
+        paragraphs = document.paragraphs
+        lines = parrafos.split(',')
+        if len(lines) >0:
+            for line in lines:
+                paragraph = paragraphs[int(line)]
+                result = DocxModule.replace_in_paragraph(paragraph, buscar, remplazar)
         else:
-            print("esta vacio el string")
+            for paragraph in paragraphs:
+                result = DocxModule.replace_in_paragraph(paragraph, buscar, remplazar)
 
-            for parrafo in parrafos_ini:
-                if buscar in parrafo.text:
-                    texto = parrafo.text
-                    texto = texto.replace(buscar, remplazar)
-                    parrafos_ini[posicion].text = texto
-                    resultado = True
-                posicion = posicion+1
-
-        SetVar(variable, resultado)
+        SetVar(variable, result)
             
     except Exception as e:
-        SetVar(variable, False)
+        SetVar(variable, result)
         PrintException()
         raise e
     

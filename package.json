@@ -3,7 +3,7 @@
   "author": "Danilo Toro - Mijahil Franchi",
   "description": "Modulo para trabajar con archivos docx",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "3.1",
+  "version": "3.2",
   "license": "MIT",
   "homepage": "http://rocketbot.co",
   "linux": true,
@@ -907,7 +907,7 @@
               "es": "Separados por comas ',' ejemplo: 1,2. En caso que no se indique buscara y remplazara en todos los párrafos",
               "en": "Comma separated ',' example: 1,2. In case it is not indicated, it will search and replace all the paragraphs"
             },
-            "id": "párrafos",
+            "id": "parrafos",
             "css": "col-md-12"
           },
           {
