@@ -325,7 +325,7 @@ if module == "search_replace_text":
 
         paragraphs = document.paragraphs
         lines = parrafos.split(',')
-        if len(lines) >0:
+        if lines:
             for line in lines:
                 paragraph = paragraphs[int(line)]
                 result = DocxModule.replace_in_paragraph(paragraph, buscar, remplazar)
