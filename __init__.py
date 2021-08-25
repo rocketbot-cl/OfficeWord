@@ -101,7 +101,7 @@ if module == "read":
 if module == "readTable":
 
     result = GetParams("result")
-    tablesDoc = []
+    tableDoc = []
     for table in document.tables:
         table_ = []
         for row in table.rows:
