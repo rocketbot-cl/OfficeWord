@@ -1,12 +1,11 @@
-
-
-
-
 # Office Word
   
-Modulo para trabajar con archivos docx  
+Module to work with docx files
   
-![banner](/docs/imgs/Banner_C:\Users\nicog\Desktop\Rocketbot\modules\OfficeWord.png)
+*Read this in other languages: [English](Manual_OfficeWord.md), [Portugues](Manual_OfficeWord.pr.md), [Español](Manual_OfficeWord.es.md).*
+  
+![banner](/docs/imgs/Banner_OfficeWord.png)
+
 ## How to install this module
   
 __Download__ and __install__ the content in 'modules' folder in Rocketbot path  
@@ -19,6 +18,7 @@ __Download__ and __install__ the content in 'modules' folder in Rocketbot path
   
 Create a new word document
 |Parameters|Description|example|
+| --- | --- | --- |
 | --- | --- | --- |
 
 ### Open Document
@@ -76,11 +76,13 @@ Add text from a bookmark to Word document.
 Close the document that is running
 |Parameters|Description|example|
 | --- | --- | --- |
+| --- | --- | --- |
 
 ### Add Page
   
 Add a new page to the document
 |Parameters|Description|example|
+| --- | --- | --- |
 | --- | --- | --- |
 
 ### Add Picture

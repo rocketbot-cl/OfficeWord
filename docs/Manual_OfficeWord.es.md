@@ -5,6 +5,7 @@ Modulo para trabajar con archivos docx
 *Read this in other languages: [English](Manual_OfficeWord.md), [Portugues](Manual_OfficeWord.pr.md), [Español](Manual_OfficeWord.es.md).*
   
 ![banner](/docs/imgs/Banner_OfficeWord.png)
+
 ## Como instalar este módulo
   
 __Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
