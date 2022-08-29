@@ -32,7 +32,7 @@ sys.path.append(cur_path)
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.shared import Pt
+from docx.shared import Pt, Mm
 import docx2txt
 from subprocess import Popen, PIPE
 from docx.oxml.shared import qn
@@ -253,7 +253,20 @@ if module == "new_page":
 if module == "add_pic":
 
     img_path = GetParams("img_path")
-    document.add_picture(img_path)
+    width = GetParams("width")
+    height = GetParams("height")
+    if width == "" or width == None:
+        width = None
+    else:
+        width = Mm(int(width))
+        
+    if height == "" or height == None:
+        height = None
+    else:
+        height = Mm(int(height))
+
+
+    document.add_picture(img_path, width=width, height=height)
 
 if module == "to_pdf":
     try:
