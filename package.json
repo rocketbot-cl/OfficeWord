@@ -284,6 +284,31 @@
             "css": "col-md-12"
           },
           {
+            "type": "input",
+            "placeholder": {
+              "es": "Arial",
+              "en": "Arial",
+              "pr": "Arial"
+            },
+            "title": {
+              "es": "Fuente de texto",
+              "en": "Text font",
+              "pr": "Fonte de texto"
+            },
+            "description": {
+              "es": "Fuente de texto que se usará en el documento",
+              "en": "Text font that will be used in the document",
+              "pr": "Fonte de texto que será usada no documento"
+            },
+            "help": {
+              "es": "Si se asigna el nombre de una fuente inexistente, se tomará la fuente por defecto del documento",
+              "en": "If the name of an inexistent font is assigned, the default font of the document will be taken",
+              "pr": "Se o nome de uma fonte inexistente for atribuído, a fonte padrão do documento será usada"
+            },
+            "id": "font_name",
+            "css": "col-md-4"
+          },
+          {
             "type": "select",
             "placeholder": {
               "es": "Title",
@@ -451,7 +476,7 @@
               }
             ],
             "id": "align",
-            "css": "col-md-4"
+            "css": "col-md-3"
           },
           {
             "type": "select",
@@ -481,7 +506,7 @@
               }
             ],
             "id": "bold",
-            "css": "col-md-4"
+            "css": "col-md-3"
           },
           {
             "type": "select",
@@ -511,7 +536,7 @@
               }
             ],
             "id": "italic",
-            "css": "col-md-4"
+            "css": "col-md-3"
           },
           {
             "type": "select",
@@ -541,7 +566,7 @@
               }
             ],
             "id": "underline",
-            "css": "col-md-4"
+            "css": "col-md-3"
           }
         ]
       },

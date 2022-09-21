@@ -4,7 +4,7 @@ Module to work with docx files
   
 *Read this in other languages: [English](Manual_OfficeWord.md), [Portugues](Manual_OfficeWord.pr.md), [Español](Manual_OfficeWord.es.md).*
   
-![banner](/docs/imgs/Banner_OfficeWord.png)
+![banner](imgs/Banner_OfficeWord.png)
 
 ## How to install this module
   
@@ -48,6 +48,7 @@ Write in a Word document.
 |Parameters|Description|example|
 | --- | --- | --- |
 |Write text|Text to be written on the document|Lorem ipsum |
+|Text font|Text font that will be used in the document|Arial |
 |Text type|Type of text to be written (Title, Header 1, Header 2, etc.)|Title|
 |Font size|Font size that the written text will have|12|
 |Alignment|Alignment that the text will have|left|

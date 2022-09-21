@@ -4,7 +4,7 @@ Módulo para trabalhar com arquivos docx
 
 *Read this in other languages: [English](Manual_OfficeWord.md), [Portugues](Manual_OfficeWord.pr.md), [Español](Manual_OfficeWord.es.md).*
   
-![banner](/docs/imgs/Banner_OfficeWord.png)
+![banner](imgs/Banner_OfficeWord.png)
 
 ## Como instalar este módulo
   
@@ -48,6 +48,7 @@ Escreva em um documento do Word.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Escreva texto|Texto a ser escrito no documento|Lorem ipsum |
+|Fonte de texto|Fonte de texto que será usada no documento|Arial |
 |Tipo de texto|Tipo de texto a ser escrito (Título, Header 1, Header 2, etc.)|Title|
 |Tamanho da fonte|Tamanho da fonte que o texto escrito terá|12|
 |Alinhamento|Alinhamento que o texto terá|left|
