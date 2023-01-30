@@ -39,8 +39,6 @@ from docx.oxml.shared import qn
 import docx.oxml
 
 import docx
-from xml.etree import ElementTree
-from lxml import etree
 
 docto = os.path.join(cur_path.replace("libs", "bin"), "docto.exe")
 
@@ -120,12 +118,9 @@ if module == "readTable":
 
 if module == "addTextBookmark":
 
-    import copy
-
     bookmark_searched = GetParams("bookmark")
     text = GetParams("text")
     clean = GetParams("Clean")
-    print(clean)
 
     try:
         tmp_doc = Document()
