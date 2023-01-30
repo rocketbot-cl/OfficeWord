@@ -324,7 +324,6 @@ if module == "search_replace_text":
     try:
 
         paragraphs = document.paragraphs
-        
         if parrafos:
             for line in parrafos.split(','):
                 paragraph = paragraphs[int(line)]
