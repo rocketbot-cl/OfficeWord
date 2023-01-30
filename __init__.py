@@ -32,7 +32,7 @@ sys.path.append(cur_path)
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.shared import Pt
+from docx.shared import Pt, Mm
 import docx2txt
 from subprocess import Popen, PIPE
 from docx.oxml.shared import qn
@@ -60,13 +60,14 @@ class DocxModule:
             return False
 
 
-def style_text(text, size, bold, ital, under):
+def style_text(text, size, bold, ital, under, font_name):
 
     font = text.font
     font.size = size
     font.bold = bold
     font.italic = ital
     font.underline = under
+    font.name = font_name
 
 
 module = GetParams("module")
@@ -185,6 +186,7 @@ if module == "write":
     bold = GetParams("bold")
     ital = GetParams("italic")
     under = GetParams("underline")
+    font_name = GetParams("font_name")
 
     if size:
         size = Pt(int(size))
@@ -208,38 +210,38 @@ if module == "write":
         print("title")
         t = document.add_heading(level = 0)
         run = t.add_run(text)
-        style_text(run, size, bold, ital, under)
+        style_text(run, size, bold, ital, under, font_name)
         t.alignment = align
     elif type_ == "h1":
         t = document.add_heading(level =1)
         run = t.add_run(text)
-        style_text(run, size, bold, ital, under)
+        style_text(run, size, bold, ital, under, font_name)
         t.alignment = align
     elif type_ == "h2":
         t = document.add_heading(level = 2)
         run = t.add_run(text)
-        style_text(run, size, bold, ital, under)
+        style_text(run, size, bold, ital, under, font_name)
         t.alignment = align
     elif type_ == "p":
         texto = text.split("\\n ")
         for line in texto:
             t = document.add_paragraph()
             run = t.add_run(line)
-            style_text(run, size, bold, ital, under)
+            style_text(run, size, bold, ital, under, font_name)
             t.alignment = align
     elif type_ == "bp":
         texto = text.split("\\n ")
         for line in texto:
             t = document.add_paragraph(style='List Bullet')
             run = t.add_run(line)
-            style_text(run, size, bold, ital, under)
+            style_text(run, size, bold, ital, under, font_name)
             t.alignment = align
     elif type_ == "ln":
         texto = text.split("\\n ")
         for line in texto:
             t = document.add_paragraph(style='List Number')
             run = t.add_run(line)
-            style_text(run, size, bold, ital, under)
+            style_text(run, size, bold, ital, under, font_name)
             t.alignment = align
     else:
         raise Exception("No se ha seleccionado tipo de texto")
@@ -253,7 +255,20 @@ if module == "new_page":
 if module == "add_pic":
 
     img_path = GetParams("img_path")
-    document.add_picture(img_path)
+    width = GetParams("width")
+    height = GetParams("height")
+    if width == "" or width == None:
+        width = None
+    else:
+        width = Mm(int(width))
+        
+    if height == "" or height == None:
+        height = None
+    else:
+        height = Mm(int(height))
+
+
+    document.add_picture(img_path, width=width, height=height)
 
 if module == "to_pdf":
     try:
