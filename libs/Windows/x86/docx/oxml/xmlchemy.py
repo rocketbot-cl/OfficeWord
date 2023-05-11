@@ -7,7 +7,7 @@ element classes.
 
 from __future__ import absolute_import
 
-from lxml import etree
+from r_lxml import etree
 
 import re
 
