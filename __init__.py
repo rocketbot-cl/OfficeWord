@@ -44,11 +44,8 @@ cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
 
 if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
         sys.path.append(cur_path_x64)
-        dumpbin = os.path.join(cur_path_x64, 'dumpbin.exe')
 if sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
         sys.path.append(cur_path_x86)
-        dumpbin = os.path.join(cur_path_x86, 'dumpbin.exe')
-
 
 import traceback
 

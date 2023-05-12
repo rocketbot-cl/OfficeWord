@@ -7,7 +7,7 @@ corresponding to Open XML elements.
 
 from __future__ import absolute_import
 
-from r_lxml import etree
+from lxml import etree
 
 from .ns import NamespacePrefixedTag, nsmap
 
