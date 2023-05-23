@@ -42,10 +42,10 @@ cur_path = os.path.join(base_path, 'modules', 'OfficeWord', 'libs')
 cur_path_x64 = os.path.join(cur_path, 'Windows' + os.sep +  'x64' + os.sep)
 cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
 
-if sys.maxsize > 2**32:
-    sys.path.append(cur_path_x64)
-else:
-    sys.path.append(cur_path_x86)
+if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
+        sys.path.append(cur_path_x64)
+if sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
+        sys.path.append(cur_path_x86)
 
 import traceback
 
