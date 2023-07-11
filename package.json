@@ -1,9 +1,14 @@
 {
 
   "author": "Danilo Toro - Mijahil Franchi",
-  "description": "Modulo para trabajar con archivos docx",
+  "description": "Module to work with docx files | Modulo para trabajar con archivos docx",
+  "description_lang": {
+    "en": "Module to create, open and edit .docx documents",
+    "es": "Modulo para crear, abrir y editar documentos .docx",
+    "pr": "Módulo para criar, abrir e editar documentos .docx"
+  },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "4.6.2",
+  "version": "4.6.3",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -1741,9 +1746,9 @@
               "pr": "Número do parágrafo"
             },
             "description": {
-              "es": "Posición del nuevo parrafo.",
-              "en": "Position of the new paragraph.",
-              "pr": "Posição do novo parágrafo."
+              "es": "Posición del parrafo.",
+              "en": "Position of the paragraph.",
+              "pr": "Posição do parágrafo."
             },
             "id": "number",
             "css": "col-md-6"

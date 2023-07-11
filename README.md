@@ -1,13 +1,18 @@
+
+
+
+
 # Office Word
   
-Module to work with docx files
+Module to create, open and edit .docx documents  
 
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Overview
@@ -22,45 +27,59 @@ Open a Word document.
 3. Read Document  
 Extract text from a Word document
 
-4. Save document  
-Extract text from file.
-
-5. Write in Document  
+4. Write in Document  
 Write in a Word document.
 
-6. Read Table  
+5. Read Table  
 Extract table text from a Word document.
 
-7. Add text from bookmark  
+6. Add text from bookmark  
 Add text from a bookmark to Word document.
 
-8. Close document  
+7. Close document  
 Close the document that is running
 
-9. Add Page  
+8. Add Page  
 Add a new page to the document
 
-10. Add Picture  
+9. Add Picture  
 Add an image to the document.
 
-11. Convert to PDF  
-Convert Word document to PDF.
-
-12. Locate Text in Paragraph  
+10. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-13. Count Paragraphs  
+11. Count Paragraphs  
 Count the number of paragraphs in the document.
 
-14. Replace text in paragraph  
-Replace the text of a paragraph.  
+12. Get Paragraphs  
+Gets a list of paragraphs in the form of a dictionary {number: text}.
+
+13. Clear Paragraph  
+Clears the content of a paragraph.
+
+14. Add paragraph  
+Add a paragraph at the desired position in a Word document.
+
+15. Add text to paragraph  
+Add text to the end of a paragraph in a Word document.
+
+16. Replace text in paragraph  
+Replace the text of a paragraph.
+
+17. Convert to PDF  
+Convert Word document to PDF.
+
+18. Save document  
+Extract text from file.  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  
+Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of 
+https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS
