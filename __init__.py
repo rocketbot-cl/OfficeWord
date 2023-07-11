@@ -85,17 +85,26 @@ try:
         font.underline = under
         font.name = font_name
 
-
+    session = GetParams("session")
     module = GetParams("module")
-    global document
+    global document, officeWord_session
+        
+    if not session:
+        session = 'default'    
+        
+    try:
+        if not officeWord_session : #type:ignore
+            officeWord_session = {}
+    except NameError:
+        officeWord_session = {}
 
     if module == "new":
-        document = Document()
+        officeWord_session[session] = Document()
 
     if module == "open":
         path = GetParams("path")
 
-        document = Document(path)
+        officeWord_session[session] = Document(path)
 
     if module == "read":
 
@@ -108,18 +117,18 @@ try:
             pass
         print(read_path)
 
-        document.save(os.path.join(read_path, "tmp.docx")) #create temporal file
+        officeWord_session[session].save(os.path.join(read_path, "tmp.docx")) #create temporal file
         text = docx2txt.process(os.path.join(read_path, "tmp.docx"))
         os.unlink(os.path.join(read_path, "tmp.docx")) #delete file
 
         if result:
             SetVar(result, text)
-
+    
     if module == "readTable":
 
         result = GetParams("result")
         tableDoc = []
-        for table in document.tables:
+        for table in officeWord_session[session].tables:
             table_ = []
             for row in table.rows:
                 array_row = []
@@ -148,7 +157,7 @@ try:
             tmp_doc_body = tmp_doc._element.body
 
 
-            ele = document._element[0]
+            ele = officeWord_session[session]._element[0]
             bookmarks_list = ele.findall('.//' + qn('w:bookmarkStart'))
             for bookmark in bookmarks_list:
                 # print(bookmark)
@@ -188,7 +197,7 @@ try:
         if path:
             if not path.endswith(".docx"):
                 path += ".docx"
-            document.save(path)
+            officeWord_session[session].save(path)
 
     if module == "write":
 
@@ -221,38 +230,38 @@ try:
 
         if type_ == "title":
             print("title")
-            t = document.add_heading(level = 0)
+            t = officeWord_session[session].add_heading(level = 0)
             run = t.add_run(text)
             style_text(run, size, bold, ital, under, font_name)
             t.alignment = align
         elif type_ == "h1":
-            t = document.add_heading(level =1)
+            t = officeWord_session[session].add_heading(level =1)
             run = t.add_run(text)
             style_text(run, size, bold, ital, under, font_name)
             t.alignment = align
         elif type_ == "h2":
-            t = document.add_heading(level = 2)
+            t = officeWord_session[session].add_heading(level = 2)
             run = t.add_run(text)
             style_text(run, size, bold, ital, under, font_name)
             t.alignment = align
         elif type_ == "p":
             texto = text.split("\\n ")
             for line in texto:
-                t = document.add_paragraph()
+                t = officeWord_session[session].add_paragraph()
                 run = t.add_run(line)
                 style_text(run, size, bold, ital, under, font_name)
                 t.alignment = align
         elif type_ == "bp":
             texto = text.split("\\n ")
             for line in texto:
-                t = document.add_paragraph(style='List Bullet')
+                t = officeWord_session[session].add_paragraph(style='List Bullet')
                 run = t.add_run(line)
                 style_text(run, size, bold, ital, under, font_name)
                 t.alignment = align
         elif type_ == "ln":
             texto = text.split("\\n ")
             for line in texto:
-                t = document.add_paragraph(style='List Number')
+                t = officeWord_session[session].add_paragraph(style='List Number')
                 run = t.add_run(line)
                 style_text(run, size, bold, ital, under, font_name)
                 t.alignment = align
@@ -260,10 +269,10 @@ try:
             raise Exception("No se ha seleccionado tipo de texto")
 
     if module == "close":
-        document = None
+        officeWord_session.pop(session)
 
     if module == "new_page":
-        document.add_page_break()
+        officeWord_session[session].add_page_break()
 
     if module == "add_pic":
 
@@ -281,7 +290,7 @@ try:
             height = Mm(int(height))
 
 
-        document.add_picture(img_path, width=width, height=height)
+        officeWord_session[session].add_picture(img_path, width=width, height=height)
 
     if module == "to_pdf":
         try:
@@ -308,7 +317,7 @@ try:
 
     ## Modificado por Mijahil Franchi: Ubica el parrafo en el que se encuentra un texto
     if module == "search_text":
-        parrafos = document.paragraphs
+        parrafos = officeWord_session[session].paragraphs
         text_buscar = GetParams("text_search")
         variable = GetParams("variable")
         posicion = 0
@@ -330,7 +339,7 @@ try:
         variable = GetParams("variable")
         
         try:
-            parrafos = document.paragraphs
+            parrafos = officeWord_session[session].paragraphs
             cantidad = len(parrafos)
         except Exception as e:
             PrintException()
@@ -338,7 +347,118 @@ try:
 
         if cantidad:
             SetVar(variable, cantidad)
+            
+    if module == "getParagraphs":
+        result = GetParams("result")
+        
+        try:
+            parrafos = officeWord_session[session].paragraphs
+            parrafos_ = {}
+            for i, parrafo in enumerate(parrafos):
+                parrafos_["Paragraph "+str(i+1)] = parrafo.text
+            
+            SetVar(result, parrafos_)
+        except Exception as e:
+            SetVar(result, False)
+            PrintException()
+            raise e
+        
+    if module == "addParagraph":
+        number = GetParams("number")
+        text = GetParams("text")
+        align = GetParams("align")
+        size = GetParams("size")
+        bold = GetParams("bold")
+        ital = GetParams("italic")
+        under = GetParams("underline")
+        font_name = GetParams("font_name")
+       
+        try:
+            number = int(number)-1
+            parrafo = officeWord_session[session].paragraphs[number]
+            parrafo.insert_paragraph_before(text)
 
+            if size:
+                size = Pt(int(size))
+            if bold:
+                bold = eval(bold)
+            if ital:
+                ital = eval(ital)
+            if under:
+                under = eval(under)
+
+            if align == "left" or None:
+                align = WD_ALIGN_PARAGRAPH.LEFT
+            elif align == "center":
+                align = WD_ALIGN_PARAGRAPH.CENTER
+            elif align == "right":
+                align = WD_ALIGN_PARAGRAPH.RIGHT
+            elif align == "justify":
+                align = WD_ALIGN_PARAGRAPH.JUSTIFY
+
+            for run in parrafo.runs:
+                style_text(run, size, bold, ital, under, font_name)
+            parrafo.alignment = align
+    
+        except Exception as e:
+            PrintException()
+            raise e
+    
+    if module == "addRun":
+        number = GetParams("number")
+        text = GetParams("text")
+        align = GetParams("align")
+        size = GetParams("size")
+        bold = GetParams("bold")
+        ital = GetParams("italic")
+        under = GetParams("underline")
+        font_name = GetParams("font_name")
+       
+        try:
+            number = int(number)-1
+            parrafo = officeWord_session[session].paragraphs[number]
+            run = parrafo.add_run(text)
+
+            if size:
+                size = Pt(int(size))
+            if bold:
+                bold = eval(bold)
+            if ital:
+                ital = eval(ital)
+            if under:
+                under = eval(under)
+
+            if align == "left" or None:
+                align = WD_ALIGN_PARAGRAPH.LEFT
+            elif align == "center":
+                align = WD_ALIGN_PARAGRAPH.CENTER
+            elif align == "right":
+                align = WD_ALIGN_PARAGRAPH.RIGHT
+            elif align == "justify":
+                align = WD_ALIGN_PARAGRAPH.JUSTIFY
+            
+            style_text(run, size, bold, ital, under, font_name)
+            parrafo.alignment = align
+    
+        except Exception as e:
+            PrintException()
+            raise e
+
+    if module == "clearParagraph":
+        number = GetParams("number")
+        result = GetParams("result")
+        
+        try:
+            number = int(number)-1
+            parrafo = officeWord_session[session].paragraphs[number]
+            clear = parrafo.clear()
+            
+            SetVar(result, True)
+        except Exception as e:
+            SetVar(result, False)
+            PrintException()
+            raise e
+    
     ## Modificado por Mijahil Franchi: Busca y remplaza el contenido de un texto
     if module == "search_replace_text":
         
@@ -351,7 +471,7 @@ try:
 
         try:
 
-            paragraphs = document.paragraphs
+            paragraphs = officeWord_session[session].paragraphs
             if parrafos:
                 for line in parrafos.split(','):
                     paragraph = paragraphs[int(line)]
