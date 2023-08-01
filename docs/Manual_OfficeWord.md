@@ -1,7 +1,3 @@
-
-
-
-
 # Office Word
   
 Module to create, open and edit .docx documents  
