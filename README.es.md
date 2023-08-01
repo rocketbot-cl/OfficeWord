@@ -1,13 +1,18 @@
+
+
+
+
 # Office Word
   
-Modulo para trabajar con archivos docx  
+Modulo para crear, abrir y editar documentos .docx  
 
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
-
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
 ## Overview
@@ -22,45 +27,59 @@ Abre un documento de Word.
 3. Leer documento  
 Extrae texto de documento Word.
 
-4. Guardar documento  
-Guarda el documento Word abierto
-
-5. Escribir en documento  
+4. Escribir en documento  
 Escribe en un documento Word.
 
-6. Leer tabla  
+5. Leer tabla  
 Extrae texto de una tabla de un documento Word.
 
-7. Agregar texto desde un bookmark  
+6. Agregar texto desde un bookmark  
 Agrega texto desde un bookmark a documento Word.
 
-8. Cerrar documento  
+7. Cerrar documento  
 Cierra el documento que se está ejecutando
 
-9. Insertar página  
+8. Insertar página  
 Inserta una nueva página al documento
 
-10. Agregar imagen  
+9. Agregar imagen  
 Agrega una imagen al documento
 
-11. Convertir a PDF  
-Convierte documento Word a PDF.
-
-12. Buscar Texto en párrafo  
+10. Buscar Texto en párrafo  
 Busca el párrafo donde se encuentra el texto indicado.
 
-13. Contar párrafos  
+11. Contar párrafos  
 Cuenta la cantidad de párrafos del documento.
 
-14. Remplazar texto en párrafo  
-Remplaza el texto de un párrafo.  
+12. Obtener parrafos  
+Obtiene un listado de parrafos en forma de diccionario {numero: texto}.
+
+13. Limpiar parrafo  
+Limpia el contenido de un párrafo.
+
+14. Agregar párrafo  
+Agrega un parrafo en la posición deseada en un documento Word.
+
+15. Agregar texto a párrafo  
+Agrega texto al final de un parrafo en un documento Word.
+
+16. Remplazar texto en párrafo  
+Remplaza el texto de un párrafo.
+
+17. Convertir a PDF  
+Convierte documento Word a PDF.
+
+18. Guardar documento  
+Guarda el documento Word abierto  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  
+Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of 
+https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS

@@ -1,13 +1,18 @@
+
+
+
+
 # Office Word
   
-Modulo para trabalhar com arquivos docx  
+Módulo para criar, abrir e editar documentos .docx  
 
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
-__Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
-
+Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
+1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
 
 ## Overview
@@ -22,45 +27,59 @@ Abra um documento do Word.
 3. Ler documento  
 Extrair texto de um documento do Word.
 
-4. Salvar documento  
-Extraia o texto do arquivo.
-
-5. Escrever no documento  
+4. Escrever no documento  
 Escreva em um documento do Word.
 
-6. Ler Tabela  
+5. Ler Tabela  
 Extrair o texto da tabela de um documento do Word.
 
-7. Adicionar texto do marcador  
+6. Adicionar texto do marcador  
 Adicione texto de um marcador a um documento do Word.
 
-8. Fechar documento  
+7. Fechar documento  
 Feche o documento que está sendo executado
 
-9. Adicionar Página  
+8. Adicionar Página  
 Adicionar uma nova página ao documento
 
-10. Adicionar imagem  
+9. Adicionar imagem  
 Adicione uma imagem ao documento.
 
-11. Converter para PDF  
-Converter documento do Word para PDF.
-
-12. Localizar texto no parágrafo  
+10. Localizar texto no parágrafo  
 Localize em qual parágrafo há um texto indicado.
 
-13. Contar parágrafos  
+11. Contar parágrafos  
 Contar o número de parágrafos no documento.
 
-14. Substituir texto no parágrafo  
-Substituir o texto de um parágrafo.  
+12. Obter parágrafos  
+Obtém uma lista de parágrafos na forma de um dicionário {number: text}.
+
+13. Limpar parágrafo  
+Limpa o conteúdo de um parágrafo.
+
+14. Adicionar parágrafo  
+Adicione um parágrafo na posição desejada em um documento do Word..
+
+15. Adicionar texto ao parágrafo  
+Adicione texto ao final de um parágrafo em um documento do Word.
+
+16. Substituir texto no parágrafo  
+Substituir o texto de um parágrafo.
+
+17. Converter para PDF  
+Converter documento do Word para PDF.
+
+18. Salvar documento  
+Extraia o texto do arquivo.  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  
+Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of 
+https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS
