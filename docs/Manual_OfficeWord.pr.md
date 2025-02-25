@@ -64,6 +64,15 @@ Extrair o texto da tabela de um documento do Word.
 |session||session|
 |Resultado|Variável onde o texto da tabela será salvo|resultado|
 
+### Adicionar dados à tabela
+  
+Este comando permite adicionar dados a uma tabela. É necessário que a tabela já exista no documento e que os dados fornecidos sejam do tamanho da tabela.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Número da tabela|Número da tabela onde os dados serão adicionados.|1|
+|Dados da tabela|Dados da tabela. Deve ser uma matriz de matrizes contendo as informações de cada linha.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
+
 ### Adicionar texto do marcador
   
 Adicione texto de um marcador a um documento do Word.

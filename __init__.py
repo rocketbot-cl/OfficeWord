@@ -67,13 +67,13 @@ try:
 
         @staticmethod
         def replace_in_paragraph(paragraph, buscar, remplazar):
-                if buscar in paragraph.text:
-                    for run in paragraph.runs:
-                        if buscar in run.text:
-                            text = run.text.replace(buscar, remplazar)
-                            run.text = text
-                            return True
-                return False
+            paragraph_text = "".join([run.text for run in paragraph.runs])  # Combinar texto de runs ya que no encontraba algunos textos
+            if buscar in paragraph_text:
+                new_paragraph_text = paragraph_text.replace(buscar, remplazar)
+                paragraph.clear() 
+                paragraph.add_run(new_paragraph_text)
+                return True
+            return False
 
 
     def style_text(text, size, bold, ital, under, font_name):
@@ -143,6 +143,27 @@ try:
         if result:
             SetVar(result, tableDoc)
 
+    if module == "addDataTable": 
+        numTable = int(GetParams("numTable")) - 1
+        data = GetParams("data")
+        
+        try:
+            table = officeWord_session[session].tables[numTable]
+            
+            if data:
+                data = eval(data)
+                for i in range(len(data)):
+                    for j in range(len(data[0])):
+                       table.cell(i, j).text = data[i][j]
+                        
+            else:
+                raise Exception("No data provided")
+        
+        except Exception as e:
+            print("\x1B[" + "31;40mError\x1B[" + "0m")
+            PrintException()
+            raise e
+    
     if module == "addTextBookmark":
 
         bookmark_searched = GetParams("bookmark")

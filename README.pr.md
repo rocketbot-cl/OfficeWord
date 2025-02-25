@@ -33,53 +33,54 @@ Escreva em um documento do Word.
 5. Ler Tabela  
 Extrair o texto da tabela de um documento do Word.
 
-6. Adicionar texto do marcador  
+6. Adicionar dados à tabela  
+Este comando permite adicionar dados a uma tabela. É necessário que a tabela já exista no documento e que os dados fornecidos sejam do tamanho da tabela.
+
+7. Adicionar texto do marcador  
 Adicione texto de um marcador a um documento do Word.
 
-7. Fechar documento  
+8. Fechar documento  
 Feche o documento que está sendo executado
 
-8. Adicionar Página  
+9. Adicionar Página  
 Adicionar uma nova página ao documento
 
-9. Adicionar imagem  
+10. Adicionar imagem  
 Adicione uma imagem ao documento.
 
-10. Localizar texto no parágrafo  
+11. Localizar texto no parágrafo  
 Localize em qual parágrafo há um texto indicado.
 
-11. Contar parágrafos  
+12. Contar parágrafos  
 Contar o número de parágrafos no documento.
 
-12. Obter parágrafos  
+13. Obter parágrafos  
 Obtém uma lista de parágrafos na forma de um dicionário {number: text}.
 
-13. Limpar parágrafo  
+14. Limpar parágrafo  
 Limpa o conteúdo de um parágrafo.
 
-14. Adicionar parágrafo  
+15. Adicionar parágrafo  
 Adicione um parágrafo na posição desejada em um documento do Word..
 
-15. Adicionar texto ao parágrafo  
+16. Adicionar texto ao parágrafo  
 Adicione texto ao final de um parágrafo em um documento do Word.
 
-16. Substituir texto no parágrafo  
+17. Substituir texto no parágrafo  
 Substituir o texto de um parágrafo.
 
-17. Converter para PDF  
+18. Converter para PDF  
 Converter documento do Word para PDF.
 
-18. Salvar documento  
+19. Salvar documento  
 Extraia o texto do arquivo.  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  
-Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of 
-https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS

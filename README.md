@@ -4,82 +4,83 @@
 
 # Office Word
   
-Module to create, open and edit .docx documents  
+Modulo para crear, abrir y editar documentos .docx  
 
 *Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
-## How to install this module
+## Como instalar este módulo
   
-To install the module in Rocketbot Studio, it can be done in two ways:
-1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
-2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
 ## Overview
 
 
-1. New Document  
-Create a new word document
+1. Nuevo documento  
+Crea un nuevo documento word
 
-2. Open Document  
-Open a Word document.
+2. Abrir Documento  
+Abre un documento de Word.
 
-3. Read Document  
-Extract text from a Word document
+3. Leer documento  
+Extrae texto de documento Word.
 
-4. Write in Document  
-Write in a Word document.
+4. Escribir en documento  
+Escribe en un documento Word.
 
-5. Read Table  
-Extract table text from a Word document.
+5. Leer tabla  
+Extrae texto de una tabla de un documento Word.
 
-6. Add text from bookmark  
-Add text from a bookmark to Word document.
+6. Agregar datos a tabla  
+Este comando permite agregar datos a una tabla. Es necesario que la tabla ya exista en el documento y que los datos propocionados sean del tamaño de la tabla.
 
-7. Close document  
-Close the document that is running
+7. Agregar texto desde un bookmark  
+Agrega texto desde un bookmark a documento Word.
 
-8. Add Page  
-Add a new page to the document
+8. Cerrar documento  
+Cierra el documento que se está ejecutando
 
-9. Add Picture  
-Add an image to the document.
+9. Insertar página  
+Inserta una nueva página al documento
 
-10. Locate Text in Paragraph  
-Locate in which paragraph there is an indicated text.
+10. Agregar imagen  
+Agrega una imagen al documento
 
-11. Count Paragraphs  
-Count the number of paragraphs in the document.
+11. Buscar Texto en párrafo  
+Busca el párrafo donde se encuentra el texto indicado.
 
-12. Get Paragraphs  
-Gets a list of paragraphs in the form of a dictionary {number: text}.
+12. Contar párrafos  
+Cuenta la cantidad de párrafos del documento.
 
-13. Clear Paragraph  
-Clears the content of a paragraph.
+13. Obtener parrafos  
+Obtiene un listado de parrafos en forma de diccionario {numero: texto}.
 
-14. Add paragraph  
-Add a paragraph at the desired position in a Word document.
+14. Limpiar parrafo  
+Limpia el contenido de un párrafo.
 
-15. Add text to paragraph  
-Add text to the end of a paragraph in a Word document.
+15. Agregar párrafo  
+Agrega un parrafo en la posición deseada en un documento Word.
 
-16. Replace text in paragraph  
-Replace the text of a paragraph.
+16. Agregar texto a párrafo  
+Agrega texto al final de un parrafo en un documento Word.
 
-17. Convert to PDF  
-Convert Word document to PDF.
+17. Remplazar texto en párrafo  
+Remplaza el texto de un párrafo.
 
-18. Save document  
-Extract text from file.  
+18. Convertir a PDF  
+Convierte documento Word a PDF.
+
+19. Guardar documento  
+Guarda el documento Word abierto  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  
-Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of 
-https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS
