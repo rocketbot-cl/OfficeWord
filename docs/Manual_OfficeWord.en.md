@@ -177,6 +177,7 @@ Replace the text of a paragraph.
 | --- | --- | --- |
 |Text to Search|Text to be searched for in the document|Hello Word|
 |Text to replace|Text to replace in the document|Hello Word|
+|Keep Format|If this box is checked, the text formatting will be preserved.|True|
 |Paragraph numbers|List of paragraphs where text will be found and replaced|Comma separated ',' example: 1,2|
 |session||session|
 |Variable name|Name of the variable where the result will be stored|Variable|

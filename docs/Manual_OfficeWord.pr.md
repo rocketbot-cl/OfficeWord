@@ -177,6 +177,7 @@ Substituir o texto de um parágrafo.
 | --- | --- | --- |
 |Texto para pesquisar|Texto a ser pesquisado no documento|Olá mundo|
 |Texto a substituir|Texto a substituir no documento|Olá mundo|
+|Manter formatação|Se esta caixa estiver marcada, a formatação do texto será mantida.|True|
 |Números de parágrafos|Lista de parágrafos onde o texto será encontrado e substituído|Separados por vírgulas ',' exemplo: 1,2|
 |session||session|
 |Nome Varíavel|Nome da variável onde o resultado será armazenado|Variável|

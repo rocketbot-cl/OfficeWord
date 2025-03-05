@@ -177,6 +177,7 @@ Remplaza el texto de un párrafo.
 | --- | --- | --- |
 |Texto a Buscar|Texto que será buscado en el documento|Hola mundo|
 |Texto a Reemplazar|Texto a reemplazar en el documento|Hola mundo|
+|Mantener Formato|Si esta casilla esta marcada, se mantendra el formato del texto.|True|
 |Lista de párrafo|Lista de párrafos donde se buscará y reemplazará el texto|Separados por comas ',' ejemplo: 1,2|
 |session||session|
 |Nombre de la variable|Nombre de la variable donde se almacenará el resultado|Variable|
