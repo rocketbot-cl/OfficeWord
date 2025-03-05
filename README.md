@@ -33,53 +33,54 @@ Write in a Word document.
 5. Read Table  
 Extract table text from a Word document.
 
-6. Add text from bookmark  
+6. Add data to table  
+This command allows you to add data to a table. It is necessary that the table already exists in the document and that the data provided is the size of the table.
+
+7. Add text from bookmark  
 Add text from a bookmark to Word document.
 
-7. Close document  
+8. Close document  
 Close the document that is running
 
-8. Add Page  
+9. Add Page  
 Add a new page to the document
 
-9. Add Picture  
+10. Add Picture  
 Add an image to the document.
 
-10. Locate Text in Paragraph  
+11. Locate Text in Paragraph  
 Locate in which paragraph there is an indicated text.
 
-11. Count Paragraphs  
+12. Count Paragraphs  
 Count the number of paragraphs in the document.
 
-12. Get Paragraphs  
+13. Get Paragraphs  
 Gets a list of paragraphs in the form of a dictionary {number: text}.
 
-13. Clear Paragraph  
+14. Clear Paragraph  
 Clears the content of a paragraph.
 
-14. Add paragraph  
+15. Add paragraph  
 Add a paragraph at the desired position in a Word document.
 
-15. Add text to paragraph  
+16. Add text to paragraph  
 Add text to the end of a paragraph in a Word document.
 
-16. Replace text in paragraph  
+17. Replace text in paragraph  
 Replace the text of a paragraph.
 
-17. Convert to PDF  
+18. Convert to PDF  
 Convert Word document to PDF.
 
-18. Save document  
+19. Save document  
 Extract text from file.  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  
-Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of 
-https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS

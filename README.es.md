@@ -33,53 +33,54 @@ Escribe en un documento Word.
 5. Leer tabla  
 Extrae texto de una tabla de un documento Word.
 
-6. Agregar texto desde un bookmark  
+6. Agregar datos a tabla  
+Este comando permite agregar datos a una tabla. Es necesario que la tabla ya exista en el documento y que los datos propocionados sean del tamaño de la tabla.
+
+7. Agregar texto desde un bookmark  
 Agrega texto desde un bookmark a documento Word.
 
-7. Cerrar documento  
+8. Cerrar documento  
 Cierra el documento que se está ejecutando
 
-8. Insertar página  
+9. Insertar página  
 Inserta una nueva página al documento
 
-9. Agregar imagen  
+10. Agregar imagen  
 Agrega una imagen al documento
 
-10. Buscar Texto en párrafo  
+11. Buscar Texto en párrafo  
 Busca el párrafo donde se encuentra el texto indicado.
 
-11. Contar párrafos  
+12. Contar párrafos  
 Cuenta la cantidad de párrafos del documento.
 
-12. Obtener parrafos  
+13. Obtener parrafos  
 Obtiene un listado de parrafos en forma de diccionario {numero: texto}.
 
-13. Limpiar parrafo  
+14. Limpiar parrafo  
 Limpia el contenido de un párrafo.
 
-14. Agregar párrafo  
+15. Agregar párrafo  
 Agrega un parrafo en la posición deseada en un documento Word.
 
-15. Agregar texto a párrafo  
+16. Agregar texto a párrafo  
 Agrega texto al final de un parrafo en un documento Word.
 
-16. Remplazar texto en párrafo  
+17. Remplazar texto en párrafo  
 Remplaza el texto de un párrafo.
 
-17. Convertir a PDF  
+18. Convertir a PDF  
 Convierte documento Word a PDF.
 
-18. Guardar documento  
+19. Guardar documento  
 Guarda el documento Word abierto  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  
-Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of 
-https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS

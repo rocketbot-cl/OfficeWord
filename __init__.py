@@ -66,14 +66,31 @@ try:
             pass
 
         @staticmethod
-        def replace_in_paragraph(paragraph, buscar, remplazar):
-                if buscar in paragraph.text:
-                    for run in paragraph.runs:
-                        if buscar in run.text:
-                            text = run.text.replace(buscar, remplazar)
-                            run.text = text
-                            return True
-                return False
+        def replace_in_paragraph(paragraph, buscar, remplazar, mantener_formato=False):
+            paragraph_text = "".join([run.text for run in paragraph.runs])
+            if buscar in paragraph_text:
+                new_paragraph_text = paragraph_text.replace(buscar, remplazar)
+                
+                # Capturar el formato original si mantener_formato es True
+                formato_original = None
+                if mantener_formato and paragraph.runs:
+                    formato_original = paragraph.runs[0].font
+                
+                paragraph.clear()
+                new_run = paragraph.add_run(new_paragraph_text)
+                
+                # Aplicar el formato original si mantener_formato es True
+                if mantener_formato and formato_original:
+                    new_run.font.size = formato_original.size
+                    new_run.font.name = formato_original.name
+                    new_run.font.bold = formato_original.bold
+                    new_run.font.italic = formato_original.italic
+                    new_run.font.underline = formato_original.underline
+                    new_run.font.color.rgb = formato_original.color.rgb
+                   
+                    
+                return True
+            return False
 
 
     def style_text(text, size, bold, ital, under, font_name):
@@ -143,6 +160,27 @@ try:
         if result:
             SetVar(result, tableDoc)
 
+    if module == "addDataTable": 
+        numTable = int(GetParams("numTable")) - 1
+        data = GetParams("data")
+        
+        try:
+            table = officeWord_session[session].tables[numTable]
+            
+            if data:
+                data = eval(data)
+                for i in range(len(data)):
+                    for j in range(len(data[0])):
+                       table.cell(i, j).text = data[i][j]
+                        
+            else:
+                raise Exception("No data provided")
+        
+        except Exception as e:
+            print("\x1B[" + "31;40mError\x1B[" + "0m")
+            PrintException()
+            raise e
+    
     if module == "addTextBookmark":
 
         bookmark_searched = GetParams("bookmark")
@@ -466,6 +504,7 @@ try:
         parrafos = GetParams("parrafos")
         buscar = GetParams("text_search")
         remplazar = GetParams("text_replace")
+        mantener_formato = eval(GetParams("mantener_formato") or "False")
         result = False
         posicion = 0
 
@@ -475,10 +514,10 @@ try:
             if parrafos:
                 for line in parrafos.split(','):
                     paragraph = paragraphs[int(line)]
-                    result = DocxModule.replace_in_paragraph(paragraph, buscar, remplazar)
+                    result = DocxModule.replace_in_paragraph(paragraph, buscar, remplazar, mantener_formato)
             else:
                 for paragraph in paragraphs:
-                    result = DocxModule.replace_in_paragraph(paragraph, buscar, remplazar)
+                    result = DocxModule.replace_in_paragraph(paragraph, buscar, remplazar, mantener_formato)
 
             SetVar(variable, result)
                 
