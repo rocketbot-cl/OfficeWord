@@ -51,6 +51,7 @@ import traceback
 
 try:
     from docx import Document
+    from docx.opc.exceptions import PackageNotFoundError
     from docx.enum.text import WD_ALIGN_PARAGRAPH
     from docx.shared import Pt, Mm
     import docx2txt
@@ -121,7 +122,23 @@ try:
     if module == "open":
         path = GetParams("path")
 
-        officeWord_session[session] = Document(path)
+        try:
+            officeWord_session[session] = Document(path)
+
+        except PackageNotFoundError:
+
+            if os.path.exists(path):
+                if os.path.getsize(path) == 0: #The file size is 0KB
+                    officeWord_session[session] = Document()
+                    officeWord_session[session].save(path)
+                else:
+                    raise Exception("The file is corrupted or is not in a valid .docx format")
+                
+            else:
+                raise Exception("File could not be found")
+            
+        except Exception as e:
+            raise e
 
     if module == "read":
 
