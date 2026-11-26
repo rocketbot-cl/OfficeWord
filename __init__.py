@@ -92,6 +92,97 @@ try:
                     
                 return True
             return False
+     
+
+        @staticmethod
+        def apply_table_borders(table, line_type, line_size):
+               
+                    
+            from docx.oxml import OxmlElement
+            from docx.oxml.ns import qn
+            line_type_map = {
+                "none": "none",
+                "single": "single",
+                "double": "double",
+                "triple": "triple",
+                "dot": "dotted",
+                "dash_small_gap": "dashSmallGap",
+                "dash_large_gap": "dashed",
+                "dash_dot": "dotDash",
+                "dash_dot_dot": "dotDotDash",
+                "dash_dot_stroked": "dashDotStroked",
+                "single_wavy": "wave",
+                "double_wavy": "doubleWave",
+                "thick_thin_small_gap": "thickThinSmallGap",
+                "thick_thin_med_gap": "thickThinMediumGap",
+                "thick_thin_large_gap": "thickThinLargeGap",
+                "thin_thick_small_gap": "thinThickSmallGap",
+                "thin_thick_med_gap": "thinThickMediumGap",
+                "thin_thick_large_gap": "thinThickLargeGap",
+                "thin_thick_thin_small_gap": "thinThickThinSmallGap",
+                "thin_thick_thin_med_gap": "thinThickThinMediumGap",
+                "thin_thick_thin_large_gap": "thinThickThinLargeGap",
+                "inset": "inset",
+                "outset": "outset",
+                "emboss_3d": "threeDEmboss",
+                "engrave_3d": "threeDEngrave",
+            }
+            line_size_map = {
+                "25_point": "2",
+                "50_point": "4",
+                "75_point": "6",
+                "100_point": "8",
+                "150_points": "12",
+                "225_points": "18",
+                "300_points": "24",
+                "450_points": "36",
+                "600_points": "48",
+            }
+
+            xml_val = line_type_map.get((line_type or "").strip())
+            xml_sz = line_size_map.get((line_size or "").strip())
+
+            if not xml_val and not xml_sz:
+                return
+
+            xml_val = xml_val or "single"  # w:val es obligatorio
+
+            def build_borders(tag, sides):
+                container = OxmlElement(tag)
+                for side in sides:
+                    el = OxmlElement(f"w:{side}")
+                    el.set(qn("w:val"), xml_val)
+                    if xml_sz:
+                        el.set(qn("w:sz"), xml_sz)
+                    el.set(qn("w:space"), "0")
+                    el.set(qn("w:color"), "auto")
+                    container.append(el)
+                return container
+
+            # Bordes a nivel tabla
+            tblPr = table._tbl.tblPr
+            old = tblPr.find(qn("w:tblBorders"))
+            if old is not None:
+                tblPr.remove(old)
+            tblPr.insert_element_before(
+                build_borders("w:tblBorders", ("top", "left", "bottom", "right", "insideH", "insideV")),
+                "w:shd", "w:tblLayout", "w:tblCellMar", "w:tblLook",
+                "w:tblCaption", "w:tblDescription", "w:tblPrChange",
+            )
+
+            # Bordes a nivel celda
+            for row in table.rows:
+                for cell in row.cells:
+                    tcPr = cell._tc.get_or_add_tcPr()
+                    old = tcPr.find(qn("w:tcBorders"))
+                    if old is not None:
+                        tcPr.remove(old)
+                    tcPr.insert_element_before(
+                        build_borders("w:tcBorders", ("top", "left", "bottom", "right")),
+                        "w:shd", "w:noWrap", "w:tcMar", "w:textDirection",
+                        "w:tcFitText", "w:vAlign", "w:hideMark",
+                        "w:headers", "w:cellIns", "w:cellDel", "w:cellMerge", "w:tcPrChange",
+                    )
 
 
     def style_text(text, size, bold, ital, under, font_name):
@@ -176,6 +267,64 @@ try:
             tableDoc.append(table_)
         if result:
             SetVar(result, tableDoc)
+            
+            
+    mod = sys.modules[DocxModule.__module__]
+    print("Archivo cargado:", mod.__file__)
+    print("Métodos:", [m for m in dir(DocxModule) if not m.startswith("_")])
+    
+    if module == "addTable":
+        rows = int(GetParams("rows"))
+        cols = int(GetParams("cols"))
+        tableStyle = GetParams("tableStyle")
+
+        iframe_raw = GetParams("iframe")
+        lineType = None
+        lineSize = None
+
+        if iframe_raw:
+            import ast, json
+            try:
+                parsed = json.loads(iframe_raw) if isinstance(iframe_raw, str) else iframe_raw
+            except Exception:
+                parsed = ast.literal_eval(iframe_raw) if isinstance(iframe_raw, str) else {}
+
+            if isinstance(parsed, dict):
+                data = parsed.get("commands") if isinstance(parsed.get("commands"), dict) else parsed
+                lineType = data.get("lineType")
+                lineSize = data.get("lineSize")
+
+        try:
+            doc = officeWord_session[session]
+            table = doc.add_table(rows=rows, cols=cols)
+            
+            style_applied = False
+
+            if tableStyle:
+                try:
+                    table.style = tableStyle
+                    style_applied = True
+                except KeyError :
+                    
+                    disponibles = []
+                    
+                    for s in doc.styles:
+                        if getattr(s, 'type', None) == 3:
+                            disponibles.append(s.name)
+                    print("Estilo '{}' no existe en este documento. Disponibles: {}".format(
+                        tableStyle, disponibles))
+
+            if lineType or lineSize:
+                DocxModule.apply_table_borders(table, lineType, lineSize)
+                
+            if not style_applied and (lineType or lineSize):
+                DocxModule.apply_table_borders(table, lineType, lineSize)
+
+
+        except Exception as e:
+            print("\x1B[" + "31;40mError\x1B[" + "0m")
+            PrintException()
+            raise e
 
     if module == "addDataTable": 
         numTable = int(GetParams("numTable")) - 1
@@ -540,6 +689,34 @@ try:
                 
         except Exception as e:
             SetVar(variable, result)
+            PrintException()
+            raise e
+        
+    if module == "addPicTable":
+        img_path = GetParams("img_path")
+        row = int(GetParams("row"))
+        col = int(GetParams("col"))
+        table_index = int(GetParams("table_index")) - 1
+
+        try:
+            img_path = os.path.abspath(img_path.replace("/", os.sep))
+            
+            if not os.path.isfile(img_path):
+                raise Exception("No existe la imagen: " + img_path)
+
+            document = officeWord_session[session]
+
+            table = document.tables[table_index]
+
+            cell = table.cell(row - 1, col - 1)
+
+            paragraph = cell.paragraphs[0]
+            run = paragraph.add_run()
+
+            run.add_picture(img_path)
+
+        except Exception as e:
+            print("\x1B[31;40mError\x1B[0m")
             PrintException()
             raise e
 except Exception as e:

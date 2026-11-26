@@ -8,7 +8,7 @@
     "pr": "Módulo para criar, abrir e editar documentos .docx"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "4.7.9",
+  "version": "4.8.9",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -2440,6 +2440,335 @@
       "video_youtube": "",
       "icon": "data:image/png;base64,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",
       "module": "save",
+      "module_name": "OfficeWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+      {
+      "en": {
+        "title": "Add table",
+        "description": "Add table in a Word document.",
+        "title_options": null,
+        "options": null
+      },
+      "es": {
+        "title": "Agregar tabla",
+        "description": "Agregar tabla en un documento Word.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Adicionar tabela",
+        "description": "Adicionar tabela em um documento do Word.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "3 ",
+              "en": "3 ",
+              "pr": "3 "
+            },
+            "description": {
+              "es": "Numero de filas que tendrá la tabla",
+              "en": "Number of rows that the table will have",
+              "pr": "Número de linhas que a tabela terá"
+            },
+            "title": {
+              "es": "Numero de filas",
+              "en": "Number of rows",
+              "pr": "Numero de linhas"
+            },
+            "help": {
+              "en": "Enter the amount of rows the table will have",
+              "es": "Ingrese la cantidad de filas que tendrá la tabla",
+              "pr": "Digite o número de linhas que a tabela terá"
+            },
+            "id": "rows",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "4 ",
+              "en": "4 ",
+              "pr": "4 "
+            },
+            "description": {
+              "es": "Numero de columnas que tendrá la tabla",
+              "en": "Number of columns that the table will have",
+              "pr": "Número de colunas que a tabela terá"
+            },
+            "title": {
+              "es": "Numero de columnas",
+              "en": "Number of columns",
+              "pr": "Numero de colunas"
+            },
+            "help": {
+              "en": "Enter the amount of columns the table will have",
+              "es": "Ingrese la cantidad de columns que tendrá la tabla",
+              "pr": "Digite o número de colunas que a tabela terá"
+            },
+            "id": "cols",
+            "css": "col-md-6"
+          },
+          {
+            "type": "select",
+            "placeholder": {
+              "es": "Colorful Grid",
+              "en": "Colorful Grid",
+              "pr": "Colorful Grid"
+            },
+            "description": {
+              "es": "Estilo de tabla predeterminada de Office Word",
+              "en": "Office Word default table style",
+              "pr": "Estilo de tabela padrão do Microsoft Word"
+            },
+            "title": {
+              "es": "Estilo de tabla",
+              "en": "Table style",
+              "pr": "Estilo da tabela"
+            },
+            "help": {
+              "en": "Optional. Choose a predefined style from Office Word",
+              "es": "Opcional. Escoja un estilo predefinido de Office Word",
+              "pr": "Opcional. Escolha um estilo predefinido do Office Word"
+            },
+            "options": [
+  { "title": "", "value": "" },
+  { "title": "Table Grid", "value": "Table Grid" },
+  { "title": "Colorful Grid", "value": "Colorful Grid" },
+  { "title": "Colorful List", "value": "Colorful List" },
+  { "title": "Colorful Shading", "value": "Colorful Shading" },
+  { "title": "Dark List", "value": "Dark List" },
+  { "title": "Light Grid", "value": "Light Grid" },
+  { "title": "Light Grid Accent 1", "value": "Light Grid Accent 1" },
+  { "title": "Light List", "value": "Light List" },
+  { "title": "Light List Accent 1", "value": "Light List Accent 1" },
+  { "title": "Light Shading", "value": "Light Shading" },
+  { "title": "Light Shading Accent 1", "value": "Light Shading Accent 1" },
+  { "title": "Medium Grid 1", "value": "Medium Grid 1" },
+  { "title": "Medium Grid 2", "value": "Medium Grid 2" },
+  { "title": "Medium Grid 3", "value": "Medium Grid 3" },
+  { "title": "Medium List 1", "value": "Medium List 1" },
+  { "title": "Medium List 1 Accent 1", "value": "Medium List 1 Accent 1" },
+  { "title": "Medium List 2", "value": "Medium List 2" },
+  { "title": "Medium Shading 1", "value": "Medium Shading 1" },
+  { "title": "Medium Shading 1 Accent 1", "value": "Medium Shading 1 Accent 1" },
+  { "title": "Medium Shading 2", "value": "Medium Shading 2" },
+  { "title": "Medium Shading 2 Accent 1", "value": "Medium Shading 2 Accent 1" }
+],
+            "id": "tableStyle",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Word1",
+              "en": "Word1",
+              "pr": "Word1"
+            },
+            "description": {
+              "es": "Sesión del archivo",
+              "en": "File session",
+              "pr": "sessão de arquivo"
+            },
+            "title": {
+              "es": "Sesión",
+              "en": "Session",
+              "pr": "Sessão"
+            },
+            "id": "session",
+            "css": "col-md-6"
+          },
+          {
+            "type": "html",
+            "placeholder": {
+              "es": "Line type: Single wavy / Line size: 1 1/2 points",
+              "en": "Line type: Single wavy / Line size: 1 1/2 points",
+              "pr": "Line type: Single wavy / Line size: 1 1/2 points"
+            },
+            "description": {
+              "es": "Estilo de los bordes de la tabla. Tipo de línea y tamaño.",
+              "en": "Table border style. Line type and size.",
+              "pr": "Estilo de borda de tabela. Tipo e tamanho da linha."
+            },
+            "title": {
+              "es": "Estilos del borde",
+              "en": "Border styles",
+              "pr": "Estilos de borda"
+            },
+            "src": "index.html",
+            "css": "col-md-12",
+            "style": "height:70px;"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAhFBMVEUqVpn///8lU5gAQ5ARSpS/ydtQb6YYTZULSJMcT5YWTJQmVJggUZfc4evT2eZzirWsuNFge6ySosOisMv2+PrK0uFHaaNYdanN1ONthbK8xdmbqsgyW5zl6fDv8fYAQZCGmb6Jm787YZ9+krpdeauyvdRBZaEANot4jrcALogAOowAM4oTwCZQAAAKIElEQVR4nO2daWOqOhCGKaAsAXfrVpdqbb33/v//d4FAzUxC2Qlg3m/ngMjTJG8mwwS1t9bl7w+7D6KxMhr9Qq3RqyMdR4fpx9k2HR0iDoPxNJld3g3btDxENwxGf7+YO4bterqIru+MQdfcBV3T5brmIBhP29ntj67Zc8bV5P65MQ3zz67ZX0Z/tNgRQ+Cag2A8rpePazgneEXh+sAYDrxxgYHXL8Zw4H0VHni9YQxmvLIDrweMYTB2jWa8muA6xVh0xusXY7kZrzeMYajpBaGmQ5poPNmM+UPNPjKegvn8PZrPW6FrmTEYeJeNbTRkK9IZkzWe0zpdK4zrKP3Q1sBLkbler7dUk8kWas1olKrocPTxiR/oeDz6x1XC6EromgLIX9lmJdmMzu8zyjhk6abuD51R08h5PXjGAPI0eEbN+xo+o3Y+yr6DWG41NxWLzhfWTDJbLDd94iuv9XcE6V0kw8VqJs4ZR4tBfSqbjqpJRu8hm45KMSrGLEb9FRhfwHNegnEnm45KMSpGxfgajOQVGOey6agUYzVGXTG2JmdZWYdVGuOXbLpYjlVV/3aesboMxTgIpTNuZN9abUplJIqxT1KMXZBeWeeuM+rzyhqnMo5l01E1uu5QjK1JMSpGxagY25RiVIyZjO+y6agU4zAYzUllbdMYtcYYiec5jmO5blg2axhGxt4QUFtbSv+lrTsaYyTa9HFZHJaz/WjrH0+rt11zG2CoUtfIpRkJ0fWwpWhD8cXa+g59n13h9nOpdkZbv47n09vngjYUX2/vLODX+d1jDFpJjweUafKbU40TvBjfEd09POPu1kvEqygjub5vdmEzBQPqPtphSGKhix0cfAXbh2c8yu7iza2ijDY4n2sDDw+2tYmvcEZn1I7EqSijuWZPnWACa4kudjLQGeSacUL9KsoIIbgbNLn51kWm403h8RHX0LWrKCO6RRMR8KnMOTId3NILbsDiO6ysfwp7DjyX/HU0FDYd2Nl/vy0dkbtiHfp77oCWcYEE3o27Gu6LxhEeP/+NKIURWv8MGqt7566Ghyy650lWBCCD0QQYW9hKeO4LBYesPoZHZ1YHGZ1P9lzUSqIbgqbjXeBRLoroAiOBDQG6GtkILgeN053Bo5nbY2UwajY4ecPeIw63I0HTsSfg4DEzApDDCIwRGKs5ElwOYqCYfZ8ZAUhhhCDAWPGig4o1HRyzf2ZFAHIYnQN7MmusxBNejzUdfQ6PvWfmAKQwwttkjZVbdFCxpoNHbFYEIIkRdTcm5uYWHVSs6aAFcmYEIIkRjbrNs7chz0zENjUKEpZZEYCs/CqMqhnXwKvfRIzpoFMyIwCt0XVHOiPsks9UAPlOYXyaDvmAR/Dishml1+ekMkJreQ4phwnTwBz6XF6h1Wd2BFCLSjBqhD37OdpYPwH2+TQdC8w7b/vGU3KRyjDCz1hJf2MDoA3rS88/AwqEsiOAWpTOmP78ESZtvpLRxgayBrBY4Z/hLU8EUIvKMELTSRqDjQ1OP2B58Ws6aCLIjgBqURlG6Bz3eLSxMd72DJIeieno7+CLckQAtajMeNQ00Z2y0+bSBPNIkkhG6Z4cEUAtKtOO8EMrg//Phwcm+8R0LLhAzhMBBGO4ueePfzFC06FLeTC9fxAYtHmizz2t6E9Ev7o4xByM0HS+4r32TNOeUWorbjEY6eaLAGTVrkDTocbKJmqCIeqA3BQdeQSmSfJFANLqc0CkQyNWtnPOXGShdCWNUlr5IgBpjMB0qLGy9xI+UgSmQ30Jpi1zRgDSGIF5RK4JUpLhK/+h6UQ/AoCy6PkiAGmM0HTC9SGbxIhaDZpO9LAYrqFzRgDSGOHyKsyxstF2NPqg6UTpO2irOSMAeTWBOvuBMMfK3n9099B0wkZDiaB8EYBERtAkQSMRh7t7mNY4hzvxwP/kzAHIYwQ5nSAcBZ2XviUSms43QbaaNwcgjxEs6I82MKE4OoVPb24ecqG8OQB5jNB0DGCZcWoDLjKCQAHa6iVnDkAeI0z7fxO21iHOi8McnG+jJc41Z0pOH1fWteR+K2A6U4ddLiZZZVjjYWjgz7LKnQNoct/c34zAdA42OxkmZgJXUmMHPCfZNl+W86uy+x/B06v9mbGT3zpGGAwtbJCP5OvomlOpPICGTMf/YeaJJL+DfAn8HZhsXgsq245g0l/9w/zj5olOeTv+AFttJ0NOVXqvLjAddtHxNEwYn/6w39R8YS57q2UZgekw0z1jmDArDiK5WTtPAahKMwLTYS7CGCZ8aAyerk4bL8xlVJoRP9lPxCyZdFG5DlUBRMutqp+yjMQU3z27ZEqNwwoU5lqzyhI8ws+5d15cqAKWTKLyuUgFHso1Gq9mMQoLjuCSyeTLIKnyBuSyGWGdTiJQOYYLAH+VNyCXzSg2HZA0TasQyB+QS2bktnIwH06UUunBb4joKKPYdGALpVTsZNbJd4YRV7+HQjFaSuVVVp18dxhFpoNiNLyZI1aRZ+RyGUUlgHjzFOFPKbg+lssoKuXk7lA0Zgutj+UyCgD4vUmCMcuWEXaekQfgJgVhoFCoZEUyI++aXC8UBQrFSlacRWV9VnifFe+aeAOZcHVyKFay4lRW6jstczDiSs23N36LNd5e9VZwONahSu9ewx8+8r1QsDppM10lvM1CjDhUEywL+W0tbVWQPVXtHXqmdR3vHp+H5X20nvinC5/C4PMdBYdjDar4nkBCiB6+74D+nJsoS2Pjy7c+HJt/F6L3uF0Ws9GExgur7a3FhwCxmn/fo+d5jhu+fcT2iG0IXpvQuNp8p2W5TQBeZXX+nZbetLLmXWeUHK+2IsWoGBWjYmxT6l2IilExKsY29QqMZg0/o9t1Ri3zt44zlV7X0RXG6ipbE9gnvTZjR96jW4Pqf/9q96QYh6HuM5LK6jwj8Zp7/qh9S4aL1eh7kF6AkbwC41U2HZViVIxZjNqHZLhYilExZjJ2RIpRMWYxvsTc8QKxXFfWVoqxGmNXco/qOXI1Rn0um46qSUbvIZuOqklGZyGbjsqt4dkcp/V3VJ/o3mXTxXKrP5zjRUsw7YlkthZktPDDU5LlPYbPePYHz2jv2viRNHkiju2ELxnRLIf/ZcP2VaObuuFPUobl++fvC93zp+0Xc8ew3cyfvGkWcV1JzzlxP9oHGq23E/+5bzN6s/NqMruMbcO0PEmkzcQ5gJHqtF4+vg3bdNonbY2R6jg67D7OQedtc5i2zEjlB8PUi4ZpOz9MIYMx0mpy/9wEw9T1mk7iyWOkOm1nt/dgmDZpSLIZqY7r5fR6Dg1puIxU/v6w00LSmg2pS4yRVv59MbdqjRs6x0gVxg2buuKGjjJSBXFDZEgV44ZOM1JVjht6wEjlx+F9idm0N4yRTmF4bxQdpv1ipIpn09ydt4+MVPk7b38ZIwVzzG1sZARIPWekCp1XSw8bBsEYKVnHWFyTDoeRKgobWmX8H4TuC0vlt0ywAAAAAElFTkSuQmCC",
+      "module": "addTable",
+      "module_name": "OfficeWord",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+      {
+      "es": {
+        "title": "Agregar imagen a tabla",
+        "description": "Este comando permite agregar una imagen a una tabla. Es necesario que la tabla ya exista en el documento.",
+        "title_options": null,
+        "options": null
+          },
+      "en": {
+        "title": "Add pic to table",
+        "description": "This command allows you to add an image to a table. It is necessary that the table already exists in the document.",
+        "title_options": null,
+        "options": null
+      },
+      "pr": {
+        "title": "Adicionar imagem tabela",
+        "description": "Este comando permite adicionar uma imagem a uma tabela. É necessário que a tabela já exista no documento.",
+        "title_options": null,
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+              "type": "input",
+              "placeholder": {
+                "es": "Word1",
+                "en": "Word1",
+                "pr": "Word1"
+              },
+              "description": {
+                "es": "Sesión del archivo",
+                "en": "File session",
+                "pr": "sessão de arquivo"
+              },
+              "title": {
+                "es": "Sesión",
+                "en": "Session",
+                "pr": "Sessão"
+              },
+              "id": "session",
+              "css": "col-md-6"
+          },
+          {
+              "type": "input",
+              "placeholder": {
+                "es": "1",
+                "en": "1",
+                "pr": "1"
+              },
+              "description": {
+                "es": "Número de tabla donde se agregarán los datos.",
+                "en": "Table number where the data will be added.",
+                "pr": "Número da tabela onde os dados serão adicionados."
+              },
+              "title": {
+                "es": "Número de tabla",
+                "en": "Table number",
+                "pr": "Número da tabela"
+              },
+              "id": "table_index",
+              "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "3 ",
+              "en": "3 ",
+              "pr": "3 "
+            },
+            "description": {
+              "es": "Numero de fila donde se agregará la imagen",
+              "en": "Number of row where the image will be added",
+              "pr": "Número de linha onde a imagem será adicionada"
+            },
+            "title": {
+              "es": "Numero de fila",
+              "en": "Number of row",
+              "pr": "Numero de linha"
+            },
+            "help": {
+              "en": "Enter the number of row where the image will be added",
+              "es": "Ingrese el número de fila donde se agregará la imagen",
+              "pr": "Digite o número da linha onde a imagem será adicionada"
+            },
+            "id": "row",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "4 ",
+              "en": "4 ",
+              "pr": "4 "
+            },
+            "description": {
+              "es": "Numero de columna donde se agregará la imagen",
+              "en": "Number of column where the image will be added",
+              "pr": "Número de coluna onde a imagem será adicionada"
+            },
+            "title": {
+              "es": "Numero de columna",
+              "en": "Number of column",
+              "pr": "Numero de coluna"
+            },
+            "help": {
+              "en": "Enter the amount of column where the image will be added",
+              "es": "Ingrese el numero de columna donde se agregará la imagen",
+              "pr": "Digite o número de coluna onde a imagem será adicionada"
+            },
+            "id": "col",
+            "css": "col-md-6"
+          },
+          {
+            "type": "file_select",
+            "placeholder": {
+              "es": "imagen.jpg",
+              "en": "pic.jpg",
+              "pr": "imagem.jpg"
+            },
+            "description": {
+              "es": "Indique la ruta hacia la imagen que desea añadir a la tabla especificada",
+              "en": "Select the path to the image you want to add to the specified table",
+              "pr": "Selecione o caminho para a imagem que deseja adicionar a tabela especificada"
+            },
+            "title": {
+              "es": "Imagen:",
+              "en": "Image:",
+              "pr": "Imagem:"
+            },
+            "help": {
+              "es": "Seleccione la imagen para añadirla a la tabla",
+              "en": "Select the image to add it to the table",
+              "pr": "Selecione a imagem para adicionar a tabela"
+            },
+            "id": "img_path",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "addPicTable",
       "module_name": "OfficeWord",
       "visible": true,
       "options": false,
