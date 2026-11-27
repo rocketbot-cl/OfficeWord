@@ -73,14 +73,22 @@ Replace the text of a paragraph.
 Convert Word document to PDF.
 
 19. Save document  
-Extract text from file.  
+Extract text from file.
+
+20. Add table  
+Add table in a Word document.
+
+21. Add pic to table  
+This command allows you to add an image to a table. It is necessary that the table already exists in the document.  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  
+Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of 
+https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS

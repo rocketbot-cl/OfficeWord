@@ -197,3 +197,25 @@ Extraia o texto do arquivo.
 | --- | --- | --- |
 |session||session|
 |Salvar arquivo|Salve o arquivo com o nome e caminho especificados|arquivo.docx|
+
+### Adicionar tabela
+  
+Adicionar tabela em um documento do Word.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Numero de linhas|Número de linhas que a tabela terá|3 |
+|Numero de colunas|Número de colunas que a tabela terá|4 |
+|Estilo da tabela|Estilo de tabela padrão do Microsoft Word|Colorful Grid|
+|Sessão|sessão de arquivo|Word1|
+|Estilos de borda|Estilo de borda de tabela. Tipo e tamanho da linha.|Line type: Single wavy / Line size: 1 1/2 points|
+
+### Adicionar imagem tabela
+  
+Este comando permite adicionar uma imagem a uma tabela. É necessário que a tabela já exista no documento.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Sessão|sessão de arquivo|Word1|
+|Número da tabela|Número da tabela onde os dados serão adicionados.|1|
+|Numero de linha|Número de linha onde a imagem será adicionada|3 |
+|Numero de coluna|Número de coluna onde a imagem será adicionada|4 |
+|Imagem|Selecione o caminho para a imagem que deseja adicionar a tabela especificada|imagem.jpg|

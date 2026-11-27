@@ -73,14 +73,22 @@ Remplaza el texto de un párrafo.
 Convierte documento Word a PDF.
 
 19. Guardar documento  
-Guarda el documento Word abierto  
+Guarda el documento Word abierto
+
+20. Agregar tabla  
+Agregar tabla en un documento Word.
+
+21. Agregar imagen a tabla  
+Este comando permite agregar una imagen a una tabla. Es necesario que la tabla ya exista en el documento.  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  
+Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of 
+https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS

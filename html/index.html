@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OfficeWord - Table Borders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: transparent;
+            margin: 0;
+            padding: 4px 0;
+        }
+        label {
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid px-1">
+        <div class="row g-2 align-items-end">
+            <div class="col-6">
+                <label for="lineType" class="form-label mb-1">Line type</label>
+                <select class="form-select form-select-sm" name="lineType" id="lineType">
+                    <option value="dash_dot">Dash dot</option>
+                    <option value="dash_dot_dot">Dash and two dots</option>
+                    <option value="dash_dot_stroked">Dash dot stroked</option>
+                    <option value="dash_large_gap">Dash with large gap</option>
+                    <option value="dash_small_gap">Dash with small gap</option>
+                    <option value="dot">Dotted</option>
+                    <option value="double">Double</option>
+                    <option value="double_wavy">Double wavy</option>
+                    <option value="emboss_3d">3D Embossed look</option>
+                    <option value="engrave_3d">3D Engraved look</option>
+                    <option value="inset">Inset</option>
+                    <option value="none">None</option>
+                    <option value="outset">Outset</option>
+                    <option value="single" selected>Single</option>
+                    <option value="single_wavy">Single wavy</option>
+                    <option value="thick_thin_large_gap">Thick thin large gap</option>
+                    <option value="thick_thin_med_gap">Thick thin med gap</option>
+                    <option value="thick_thin_small_gap">Thick thin small gap</option>
+                    <option value="thin_thick_large_gap">Thin thick large gap</option>
+                    <option value="thin_thick_med_gap">Thin thick med gap</option>
+                    <option value="thin_thick_small_gap">Thin thick small gap</option>
+                    <option value="thin_thick_thin_large_gap">Thin thick thin large gap</option>
+                    <option value="thin_thick_thin_med_gap">Thin thick thin med gap</option>
+                    <option value="thin_thick_thin_small_gap">Thin thick thin small gap</option>
+                    <option value="triple">Triple</option>
+                </select>
+            </div>
+
+            <div class="col-6">
+                <label for="lineSize" class="form-label mb-1">Line size</label>
+                <select class="form-select form-select-sm" name="lineSize" id="lineSize">
+                    <option value="25_point">1/4 point</option>
+                    <option value="50_point">1/2 point</option>
+                    <option value="75_point">3/4 point</option>
+                    <option value="100_point" selected>1 point</option>
+                    <option value="150_points">1 1/2 points</option>
+                    <option value="225_points">2 1/4 points</option>
+                    <option value="300_points">3 points</option>
+                    <option value="450_points">4 1/2 points</option>
+                    <option value="600_points">6 points</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="./message.js"></script>
+    <script src="./options.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -4,196 +4,218 @@
 
 # Office Word
   
-Modulo para crear, abrir y editar documentos .docx  
+Module to create, open and edit .docx documents  
 
 *Read this in other languages: [English](Manual_OfficeWord.md), [Português](Manual_OfficeWord.pr.md), [Español](Manual_OfficeWord.es.md)*
   
 ![banner](imgs/Banner_OfficeWord.png)
-## Como instalar este módulo
+## How to install this module
   
-Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
-1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
-2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
-## Descripción de los comandos
+## Description of the commands
 
-### Nuevo documento
+### New Document
   
-Crea un nuevo documento word
-|Parámetros|Descripción|ejemplo|
+Create a new word document
+|Parameters|Description|example|
 | --- | --- | --- |
 |session||session|
 
-### Abrir Documento
+### Open Document
   
-Abre un documento de Word.
-|Parámetros|Descripción|ejemplo|
+Open a Word document.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Archivo|Archivo con formato docx que se abrirá|archivo.docx|
+|File|docx format file to open|file.docx|
 |session||session|
 
-### Leer documento
+### Read Document
   
-Extrae texto de documento Word.
-|Parámetros|Descripción|ejemplo|
+Extract text from a Word document
+|Parameters|Description|example|
 | --- | --- | --- |
 |session||session|
-|Resultado|Variable donde se guardará el texto extraído|Variable|
+|Result|Variable where the extracted text will be saved|Variable|
 
-### Escribir en documento
+### Write in Document
   
-Escribe en un documento Word.
-|Parámetros|Descripción|ejemplo|
+Write in a Word document.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Escriba texto|Texto que será escrito en el documento|Lorem ipsum |
-|Fuente de texto|Fuente de texto que se usará en el documento|Arial|
-|Tipo de texto|Tipo de texto que será escrito (Titulo, Header 1, Header 2, etc.)|Title|
-|Tamaño de fuente|Tamaño de fuente que tendrá el texto escrito|12|
-|Alineación|Alineación que tendrá el texto|left|
-|Negrita|Casilla para elegir si el texto escrito estará en negrita|False|
-|Cursiva|Casilla para elegir si el texto escrito estará en cursiva|True|
-|Subrayar|Casilla para elegir si el texto escrito estará subrayado|True|
+|Write text|Text to be written on the document|Lorem ipsum |
+|Text font|Text font that will be used in the document|Arial|
+|Text type|Type of text to be written (Title, Header 1, Header 2, etc.)|Title|
+|Font size|Font size that the written text will have|12|
+|Alignment|Alignment that the text will have|left|
+|Bold|Checkbox to choose if the written text will be in bold|False|
+|Italic|Checkbox to choose if the written text will be in italics|True|
+|Underline|Checkbox to choose if the written text will be underlined|True|
 |session||session|
 
-### Leer tabla
+### Read Table
   
-Extrae texto de una tabla de un documento Word.
-|Parámetros|Descripción|ejemplo|
+Extract table text from a Word document.
+|Parameters|Description|example|
 | --- | --- | --- |
 |session||session|
-|Resultado|Variable donde se guardará el texto de la tabla|resultado|
+|Result|Variable where the text of the table will be saved|result|
 
-### Agregar datos a tabla
+### Add data to table
   
-Este comando permite agregar datos a una tabla. Es necesario que la tabla ya exista en el documento y que los datos propocionados sean del tamaño de la tabla.
-|Parámetros|Descripción|ejemplo|
+This command allows you to add data to a table. It is necessary that the table already exists in the document and that the data provided is the size of the table.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Sesión|Sesión del archivo|Word1|
-|Número de tabla|Número de tabla donde se agregarán los datos.|1|
-|Datos de la tabla|Datos de la tabla. Debe ser un array de arrays que contengan la información de cada fila.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
+|Session|File session|Word1|
+|Table number|Table number where the data will be added.|1|
+|Table data|Table data. Must be an array of arrays containing the information of each row.|[ ["Name", "Age", "Gender"], ["John Doe", "32", "Male"], ["Jane Doe", "30", "Female"]]|
 
-### Agregar texto desde un bookmark
+### Add text from bookmark
   
-Agrega texto desde un bookmark a documento Word.
-|Parámetros|Descripción|ejemplo|
+Add text from a bookmark to Word document.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Ingrese texto|Texto que se agregará|Lorem ipsum|
-|Limpiar|Casilla para elegir si el texto anterior será eliminado|True|
-|Ingrese bookmark|Nombre del bookmark|Lorem ipsum|
+|Add text|Text to be added|Lorem ipsum|
+|Clean|Checkbox to choose if the previous text will be deleted|True|
+|Bookmark|Bookmark name|Lorem ipsum|
 |session||session|
 
-### Cerrar documento
+### Close document
   
-Cierra el documento que se está ejecutando
-|Parámetros|Descripción|ejemplo|
+Close the document that is running
+|Parameters|Description|example|
 | --- | --- | --- |
 |session||session|
 
-### Insertar página
+### Add Page
   
-Inserta una nueva página al documento
-|Parámetros|Descripción|ejemplo|
+Add a new page to the document
+|Parameters|Description|example|
 | --- | --- | --- |
 
-### Agregar imagen
+### Add Picture
   
-Agrega una imagen al documento
-|Parámetros|Descripción|ejemplo|
+Add an image to the document.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Ruta de la imagen|Ruta de la imagen a agregar en el documento|imagen.jpg|
-|Ancho de la imagen|Ancho que tendrá la imagen|600|
-|Alto de la imagen|Alto que tendrá la imagen|500|
+|Image path|Path of the image to add in the document|image.jpg|
+|Image width|Width that the image will have|600|
+|Image height|Height that the image will have|500|
 |session||session|
 
-### Buscar Texto en párrafo
+### Locate Text in Paragraph
   
-Busca el párrafo donde se encuentra el texto indicado.
-|Parámetros|Descripción|ejemplo|
+Locate in which paragraph there is an indicated text.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Texto a Buscar|Texto que se buscará en el documento|Hola mundo|
+|Text to Search|Text to search for in the document|Hello Word|
 |session||session|
-|Nombre de la variable|Variable donde se guardará el número de párrafo que contiene el texto buscado|Variable|
+|variable name|Variable where the paragraph number containing the searched text will be saved|Variable|
 
-### Contar párrafos
+### Count Paragraphs
   
-Cuenta la cantidad de párrafos del documento.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|session||session|
-|Nombre de la variable|Variable donde se guardará la cantidad de párrafos del documento|Variable|
-
-### Obtener parrafos
-  
-Obtiene un listado de parrafos en forma de diccionario {numero: texto}.
-|Parámetros|Descripción|ejemplo|
+Count the number of paragraphs in the document.
+|Parameters|Description|example|
 | --- | --- | --- |
 |session||session|
-|Resultado|Variable donde se guardará el texto extraído|Variable|
+|Variable name|Variable where the number of paragraphs of the document will be saved|Variable|
 
-### Limpiar parrafo
+### Get Paragraphs
   
-Limpia el contenido de un párrafo.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Numero de parrafo|Posición del parrafo a borrar.|1|
-|session||session|
-|Resultado|Variable donde se guardará el texto extraído|Variable|
-
-### Agregar párrafo
-  
-Agrega un parrafo en la posición deseada en un documento Word.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Escriba texto|Texto que será escrito en el documento|Lorem ipsum |
-|Numero de parrafo|Posición del nuevo parrafo.|1|
-|Fuente de texto|Fuente de texto que se usará en el documento|Arial|
-|Tamaño de fuente|Tamaño de fuente que tendrá el texto escrito|12|
-|Alineación|Alineación que tendrá el texto|left|
-|Negrita|Casilla para elegir si el texto escrito estará en negrita|False|
-|Cursiva|Casilla para elegir si el texto escrito estará en cursiva|True|
-|Subrayar|Casilla para elegir si el texto escrito estará subrayado|True|
-|session||session|
-
-### Agregar texto a párrafo
-  
-Agrega texto al final de un parrafo en un documento Word.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Escriba texto|Texto que será escrito en el documento|Lorem ipsum |
-|Numero de parrafo|Posición del parrafo.|1|
-|Fuente de texto|Fuente de texto que se usará en el documento|Arial|
-|Tamaño de fuente|Tamaño de fuente que tendrá el texto escrito|12|
-|Alineación|Alineación que tendrá el texto|left|
-|Negrita|Casilla para elegir si el texto escrito estará en negrita|False|
-|Cursiva|Casilla para elegir si el texto escrito estará en cursiva|True|
-|Subrayar|Casilla para elegir si el texto escrito estará subrayado|True|
-|session||session|
-
-### Remplazar texto en párrafo
-  
-Remplaza el texto de un párrafo.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Texto a Buscar|Texto que será buscado en el documento|Hola mundo|
-|Texto a Reemplazar|Texto a reemplazar en el documento|Hola mundo|
-|Mantener Formato|Si esta casilla esta marcada, se mantendra el formato del texto.|True|
-|Lista de párrafo|Lista de párrafos donde se buscará y reemplazará el texto|Separados por comas ',' ejemplo: 1,2|
-|session||session|
-|Nombre de la variable|Nombre de la variable donde se almacenará el resultado|Variable|
-
-### Convertir a PDF
-  
-Convierte documento Word a PDF.
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Archivo Word|Archivo de word que se convertirá a PDF|archivo.docx|
-|Guardar archivo|Nombre y ruta del archivo donde se guardará el archivo generado|archivo.pdf|
-
-### Guardar documento
-  
-Guarda el documento Word abierto
-|Parámetros|Descripción|ejemplo|
+Gets a list of paragraphs in the form of a dictionary {number: text}.
+|Parameters|Description|example|
 | --- | --- | --- |
 |session||session|
-|Guardar archivo|Guarda el archivo con el nombre y la ruta especificada|archivo.docx|
+|Result|Variable where the extracted text will be saved|Variable|
+
+### Clear Paragraph
+  
+Clears the content of a paragraph.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Paragraph number|Position of the paragraph to delete.|1|
+|session||session|
+|Result|Variable where the extracted text will be saved|Variable|
+
+### Add paragraph
+  
+Add a paragraph at the desired position in a Word document.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Write text|Text to be written on the document|Lorem ipsum |
+|Paragraph number|Position of the new paragraph.|1|
+|Text font|Text font that will be used in the document|Arial|
+|Font size|Font size that the written text will have|12|
+|Alignment|Alignment that the text will have|left|
+|Bold|Checkbox to choose if the written text will be in bold|False|
+|Italic|Checkbox to choose if the written text will be in italics|True|
+|Underline|Checkbox to choose if the written text will be underlined|True|
+|session||session|
+
+### Add text to paragraph
+  
+Add text to the end of a paragraph in a Word document.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Write text|Text to be written on the document|Lorem ipsum |
+|Paragraph number|Position of the paragraph.|1|
+|Text font|Text font that will be used in the document|Arial|
+|Font size|Font size that the written text will have|12|
+|Alignment|Alignment that the text will have|left|
+|Bold|Checkbox to choose if the written text will be in bold|False|
+|Italic|Checkbox to choose if the written text will be in italics|True|
+|Underline|Checkbox to choose if the written text will be underlined|True|
+|session||session|
+
+### Replace text in paragraph
+  
+Replace the text of a paragraph.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Text to Search|Text to be searched for in the document|Hello Word|
+|Text to replace|Text to replace in the document|Hello Word|
+|Keep Format|If this box is checked, the text formatting will be preserved.|True|
+|Paragraph numbers|List of paragraphs where text will be found and replaced|Comma separated ',' example: 1,2|
+|session||session|
+|Variable name|Name of the variable where the result will be stored|Variable|
+
+### Convert to PDF
+  
+Convert Word document to PDF.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Word file|Word file to be converted to PDF|file.docx|
+|Save file|Name and path of the file where the generated file will be saved|file.pdf|
+
+### Save document
+  
+Extract text from file.
+|Parameters|Description|example|
+| --- | --- | --- |
+|session||session|
+|Save file|Save the file with the specified name and path|file.docx|
+
+### Add table
+  
+Add table in a Word document.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Number of rows|Number of rows that the table will have|3 |
+|Number of columns|Number of columns that the table will have|4 |
+|Table style|Office Word default table style|Colorful Grid|
+|Session|File session|Word1|
+|Border styles|Table border style. Line type and size.|Line type: Single wavy / Line size: 1 1/2 points|
+
+### Add pic to table
+  
+This command allows you to add an image to a table. It is necessary that the table already exists in the document.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Session|File session|Word1|
+|Table number|Table number where the data will be added.|1|
+|Number of row|Number of row where the image will be added|3 |
+|Number of column|Number of column where the image will be added|4 |
+|Image|Select the path to the image you want to add to the specified table|pic.jpg|

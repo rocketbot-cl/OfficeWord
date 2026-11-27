@@ -73,14 +73,22 @@ Substituir o texto de um parágrafo.
 Converter documento do Word para PDF.
 
 19. Salvar documento  
-Extraia o texto do arquivo.  
+Extraia o texto do arquivo.
+
+20. Adicionar tabela  
+Adicionar tabela em um documento do Word.
+
+21. Adicionar imagem tabela  
+Este comando permite adicionar uma imagem a uma tabela. É necessário que a tabela já exista no documento.  
 
 
 
 ### Changes
 Mon Dec 23 16:48:10 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Wed Dec 11 11:05:54 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
-Tue Nov 5 12:28:42 2019  Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Wed Dec 11 11:05:54 2019  
+Merge branch master of https://github.com/rocketbot-cl/OfficeWord
+Tue Nov 5 12:28:42 2019  Merge branch master of 
+https://github.com/rocketbot-cl/OfficeWord
 
 ----
 ### OS
